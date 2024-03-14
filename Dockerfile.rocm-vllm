@@ -1,0 +1,102 @@
+# Stage 1:  Install vllm
+ARG VLLM_BASE_IMAGE="rocm/pytorch:rocm6.0_ubuntu20.04_py3.9_pytorch_2.1.1"
+FROM $VLLM_BASE_IMAGE as vllm-builder
+
+ARG VLLM_BASE_IMAGE="rocm/pytorch:rocm6.0_ubuntu20.04_py3.9_pytorch_2.1.1"
+ARG FA_GFX_ARCHS="gfx90a;gfx942"
+ARG FA_BRANCH="3d2b6f5"
+
+RUN apt-get update && apt-get install python3 python3-pip -y
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    bzip2 \
+    ca-certificates \
+    ccache \
+    curl \
+    git \
+    libx11-6 \
+    libssl-dev \
+    make \
+    sudo \
+    wget \
+    unzip \
+    nvidia-cuda-toolkit \
+    tmux \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+RUN python3 -m pip install --upgrade pip
+RUN python3 -m pip install --no-cache-dir fastapi ninja tokenizers pandas
+
+ENV LLVM_SYMBOLIZER_PATH=/opt/rocm/llvm/bin/llvm-symbolizer
+ENV PATH=$PATH:/opt/rocm/bin:/libtorch/bin:
+ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/rocm/lib/:/libtorch/lib:
+ENV CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/libtorch/include:/libtorch/include/torch/csrc/api/include/:/opt/rocm/include/:
+
+# Install ROCm flash-attention, under /app/libs
+RUN mkdir libs \
+    && cd libs \
+    && git clone https://github.com/ROCm/flash-attention.git \
+    && cd flash-attention \
+    && git checkout ${FA_BRANCH} \
+    && git submodule update --init \
+    && export GPU_ARCHS=${FA_GFX_ARCHS} \
+    && if [ "$VLLM_BASE_IMAGE" = "rocm/pytorch:rocm5.7_ubuntu22.04_py3.10_pytorch_2.0.1" ]; then \
+        patch /opt/conda/envs/py_3.10/lib/python3.10/site-packages/torch/utils/hipify/hipify_python.py hipify_patch.patch; fi \
+    && python3 setup.py install \
+    && cd ..
+
+RUN python3 -m pip install --upgrade pip
+RUN python3 -m pip install xformers==0.0.23 accelerate --no-deps
+
+# Error related to odd state for numpy 1.20.3 where there is no METADATA etc, but an extra LICENSES_bundled.txt.
+# Manually removed it so that later steps of numpy upgrade can continue
+RUN if [ "$VLLM_BASE_IMAGE" = "rocm/pytorch:rocm6.0_ubuntu20.04_py3.9_pytorch_2.1.1" ]; then \
+    rm -rf /opt/conda/envs/py_3.9/lib/python3.9/site-packages/numpy-1.20.3.dist-info/; fi
+
+RUN cd /app \
+    && git clone https://github.com/vllm-project/vllm.git \
+    && cd vllm \
+    && pip install -U -r requirements-rocm.txt \
+    && bash patch_xformers.rocm.sh \
+    && patch /opt/rocm/include/hip/amd_detail/amd_hip_bf16.h /app/vllm/rocm_patch/rocm_bf16.patch \
+    && python3 setup.py install \
+    && cd ..
+
+RUN echo "build of vllm complete"
+
+# Stage 2:  Install OpenLLM
+# Over OpenLLM git repo clone
+RUN python3 -m pip install --upgrade pip
+RUN python3 -m pip install --no-cache-dir build
+
+COPY ./ /app/openllm
+RUN cd /app/openllm \
+    && bash wheels.sh \
+    && pip install ./dist/openllm_core*.whl \
+    && rm ./dist/openllm_core*.whl \
+    && pip install ./dist/openllm_client*.whl \
+    && rm ./dist/openllm_client*.whl \
+    && pip install ./dist/openllm-*.whl \
+    && rm ./dist/openllm-*.whl
+
+# RUN mkdir -p /app/openllm-python \
+#     && mkdir -p /app/openllm-core \
+#     && mkdir -p /app/openllm-client
+#
+# COPY openllm-python/src /app/openllm-python/src
+# COPY hatch.toml README.md CHANGELOG.md openllm-python/pyproject.toml /app/openllm-python/
+# RUN --mount=type=cache,target=/root/.cache/pip pip3 install --no-cache-dir -e /app/openllm-python/
+#
+# COPY openllm-core/src /app/openllm-core/src
+# COPY hatch.toml README.md CHANGELOG.md openllm-core/pyproject.toml /app/openllm-core/
+# RUN --mount=type=cache,target=/root/.cache/pip pip3 install -v --no-cache-dir -e /app/openllm-core/
+#
+# COPY openllm-client/src /app/openllm-client/src
+# COPY hatch.toml README.md CHANGELOG.md openllm-client/pyproject.toml /app/openllm-client/
+# RUN --mount=type=cache,target=/root/.cache/pip pip3 install -v --no-cache-dir -e /app/openllm-client/
+
+# Stage 3: Final image
+
+CMD ["/bin/bash"]
