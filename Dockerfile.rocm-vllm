@@ -81,22 +81,6 @@ RUN cd /app/openllm \
     && pip install ./dist/openllm-*.whl \
     && rm ./dist/openllm-*.whl
 
-# RUN mkdir -p /app/openllm-python \
-#     && mkdir -p /app/openllm-core \
-#     && mkdir -p /app/openllm-client
-#
-# COPY openllm-python/src /app/openllm-python/src
-# COPY hatch.toml README.md CHANGELOG.md openllm-python/pyproject.toml /app/openllm-python/
-# RUN --mount=type=cache,target=/root/.cache/pip pip3 install --no-cache-dir -e /app/openllm-python/
-#
-# COPY openllm-core/src /app/openllm-core/src
-# COPY hatch.toml README.md CHANGELOG.md openllm-core/pyproject.toml /app/openllm-core/
-# RUN --mount=type=cache,target=/root/.cache/pip pip3 install -v --no-cache-dir -e /app/openllm-core/
-#
-# COPY openllm-client/src /app/openllm-client/src
-# COPY hatch.toml README.md CHANGELOG.md openllm-client/pyproject.toml /app/openllm-client/
-# RUN --mount=type=cache,target=/root/.cache/pip pip3 install -v --no-cache-dir -e /app/openllm-client/
-
 # Stage 3: Final image
 
 CMD ["/bin/bash"]
