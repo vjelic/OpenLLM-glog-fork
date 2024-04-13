@@ -4,7 +4,7 @@
 set -e
 
 BUILD_VERSION=rocm6-ub20-py39-pt211
-JOB_NAME=ollm-test
+JOB_NAME=ollm-test-mgpu
 CONTAINER_NAME=ollm:${BUILD_VERSION}
 
 podman run -it \
@@ -12,5 +12,5 @@ podman run -it \
   --security-opt seccomp=unconfined --security-opt label=disable \
   --name ${JOB_NAME} \
   -v $HOME:/myhome \
-  -p 13000:3000 ${CONTAINER_NAME} \
+  -p 53000:3000 ${CONTAINER_NAME} \
   /bin/bash

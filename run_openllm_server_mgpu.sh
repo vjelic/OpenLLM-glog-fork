@@ -12,12 +12,14 @@ export CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
 # To suppress errors when rocBlas spawns too many threads
 export OMP_NUM_THREADS=8
 
+export HF_TOKEN=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
+
 # Start OpenLLM server with Mistral model
 # choice:
 #   mistralai/Mistral-7B-Instruct-v0.1
 #   meta-llama/Llama-2-7b-chat-hf
 # MODEL_NAME=mistralai/Mistral-7B-Instruct-v0.1
-MODEL_NAME=mistralai/Mistral-7B-Instruct-v0.1
+MODEL_NAME=meta-llama/Llama-2-7b-chat-hf
 
 # choice:  pt, vllm, ctranslate, triton
 BACKEND=vllm
@@ -39,6 +41,6 @@ openllm start ${MODEL_NAME} \
   --serialization ${SERIALIZER} \
   | tee ${OUTPUT_MOUNT}
 
-# Once server is running, you can access it at http://<ip_address>:43000
+# Once server is running, you can access it at http://localhost:43000
 #   with 43000 being the port number mapped to the container's 3000 port
 #   in the podman run command
