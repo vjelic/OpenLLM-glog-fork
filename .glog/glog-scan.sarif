@@ -1,0 +1,80 @@
+{
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Glog.AI",
+          "organization": "Glog.AI",
+          "fullName": "Glog, Making software more secure",
+          "version": "1.0.0",
+          "semanticVersion": "1.0.0",
+          "informationUri": "https://www.glog.ai",
+          "rules": [
+            {
+              "id": "glog-dc4bb593-f03f-498a-aab2-c556d96a9823",
+              "help": {
+                "text": ""
+              },
+              "properties": {
+                "tags": [
+                  "B701"
+                ]
+              }
+            }
+          ],
+          "language": "en-US",
+          "contents": [
+            "localizedData",
+            "nonLocalizedData"
+          ],
+          "isComprehensive": false
+        }
+      },
+      "language": "en-US",
+      "results": [
+        {
+          "ruleId": "glog-dc4bb593-f03f-498a-aab2-c556d96a9823",
+          "kind": "fail",
+          "level": "error",
+          "message": {
+            "text": "Invalid input."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tools/update-brew-tap.py"
+                },
+                "region": {
+                  "startLine": 52,
+                  "startColumn": 17,
+                  "endLine": 53,
+                  "endColumn": 4,
+                  "snippet": {
+                    "text": "  ENVIRONMENT = Environment(\n"
+                  }
+                },
+                "contextRegion": {
+                  "startLine": 51,
+                  "endLine": 58,
+                  "snippet": {
+                    "text": "\n  ENVIRONMENT = Environment(\n    extensions=['jinja2.ext.do', 'jinja2.ext.loopcontrols', 'jinja2.ext.debug'],\n    trim_blocks=True,\n    lstrip_blocks=True,\n    loader=FileSystemLoader((ROOT / 'Formula').__fspath__(), followlinks=True),\n  )\n  template_file = 'openllm.rb.j2'\n"
+                  }
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_severity": "HIGH",
+            "issue_confidence": "HIGH"
+          }
+        }
+      ],
+      "newlineSequences": [
+        "\r\n",
+        "\n"
+      ]
+    }
+  ]
+}
