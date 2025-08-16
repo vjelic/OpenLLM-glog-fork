@@ -12,7 +12,19 @@
           "informationUri": "https://www.glog.ai",
           "rules": [
             {
-              "id": "glog-dc4bb593-f03f-498a-aab2-c556d96a9823",
+              "id": "glog-f4438216-db64-4c6b-8e2d-d2821ed287c8",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\nIn Python, the `eval()` function is used to evaluate the Python expression which is passed to it as a string. However, it is considered insecure because it allows the execution of arbitrary Python code. This can lead to serious security issues if an attacker is able to manipulate the input string. \n\nThe `compile()` function is also potentially insecure as it can be used to dynamically create Python code. When used in combination with `eval()`, it can lead to even more serious security vulnerabilities.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, consider using `ast.literal_eval()` instead of `eval()`. The `ast.literal_eval()` function safely parses and evaluates an expression for a Python literal structure. It only considers a small subset of Python's syntax which includes strings, numbers, tuples, lists, dicts, booleans, and None.\n\n## Source Code Fix Recommendation\n\nReplace:\n\n```python\neval(compile(script, filename, 'exec'), globs, locs)\n```\n\nWith:\n\n```python\nimport ast\nast.literal_eval(compile(script, filename, 'exec'))\n```\n\n## Library Dependencies\n\nThe code example does not require any external library dependencies. It only uses built-in Python functions.\n\n## References\n\n- [CWE-94: Improper Control of Generation of Code ('Code Injection')](https://cwe.mitre.org/data/definitions/94.html)\n\nPlease note that the links provided are accessible to anonymous users at the time of writing this report."
+              },
+              "properties": {
+                "tags": [
+                  "B307"
+                ]
+              }
+            },
+            {
+              "id": "glog-970c97ba-0761-4cf1-8196-01216d9a25f6",
               "help": {
                 "text": ""
               },
@@ -34,7 +46,44 @@
       "language": "en-US",
       "results": [
         {
-          "ruleId": "glog-dc4bb593-f03f-498a-aab2-c556d96a9823",
+          "ruleId": "glog-f4438216-db64-4c6b-8e2d-d2821ed287c8",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Potential Insecure Function Use - Consider Safer ast.literal_eval."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "openllm-core/src/openllm_core/utils/codegen.py"
+                },
+                "region": {
+                  "startLine": 66,
+                  "startColumn": 3,
+                  "endLine": 66,
+                  "endColumn": 55,
+                  "snippet": {
+                    "text": "  eval(compile(script, filename, 'exec'), globs, locs)\n"
+                  }
+                },
+                "contextRegion": {
+                  "startLine": 65,
+                  "endLine": 67,
+                  "snippet": {
+                    "text": "def _compile_and_eval(script, globs, locs=None, filename=''):\n  eval(compile(script, filename, 'exec'), globs, locs)\n\n"
+                  }
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_severity": "MEDIUM",
+            "issue_confidence": "HIGH"
+          }
+        },
+        {
+          "ruleId": "glog-970c97ba-0761-4cf1-8196-01216d9a25f6",
           "kind": "fail",
           "level": "error",
           "message": {
