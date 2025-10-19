@@ -12,27 +12,26 @@
           "informationUri": "https://www.glog.ai",
           "rules": [
             {
-              "id": "4f3161c1-4c1b-302d-87e2-f27b1e0a87ec",
-              "name": "dockerfile.security.missing-user-entrypoint.missing-user-entrypoint",
+              "id": "eb908e4c-3fa1-32a7-8d8f-7899fa1a022b",
+              "name": "resources.rules.missing-image-version",
               "shortDescription": {
-                "text": "Opengrep Finding: dockerfile.security.missing-user-entrypoint.missing-user-entrypoint"
+                "text": "Opengrep Finding: resources.rules.missing-image-version"
               },
               "fullDescription": {
-                "text": "By not specifying a USER, a program in the container may run as 'root'. This is a security hazard. If an attacker can control a process running as root, they may have control over the container. Ensure that the last USER in a Dockerfile is a USER other than 'root'."
+                "text": "Images should be tagged with an explicit version to produce deterministic container images."
               },
               "defaultConfiguration": {
                 "enabled": true,
-                "level": "error"
+                "level": "warning"
               },
-              "helpUri": "https://semgrep.dev/r/dockerfile.security.missing-user-entrypoint.missing-user-entrypoint",
               "help": {
-                "text": "By not specifying a USER, a program in the container may run as 'root'. This is a security hazard. If an attacker can control a process running as root, they may have control over the container. Ensure that the last USER in a Dockerfile is a USER other than 'root'.\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
-                "markdown": "By not specifying a USER, a program in the container may run as 'root'. This is a security hazard. If an attacker can control a process running as root, they may have control over the container. Ensure that the last USER in a Dockerfile is a USER other than 'root'.\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/dockerfile.security.missing-user-entrypoint.missing-user-entrypoint)\n - [https://owasp.org/Top10/A04_2021-Insecure_Design](https://owasp.org/Top10/A04_2021-Insecure_Design)\n"
+                "text": "Images should be tagged with an explicit version to produce deterministic container images.\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
+                "markdown": "Images should be tagged with an explicit version to produce deterministic container images.\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [https://github.com/hadolint/hadolint/wiki/DL3006](https://github.com/hadolint/hadolint/wiki/DL3006)\n"
               },
               "properties": {
                 "precision": "very-high",
                 "tags": [
-                  "dockerfile.security.missing-user-entrypoint.missing-user-entrypoint"
+                  "resources.rules.missing-image-version"
                 ]
               }
             },
@@ -57,30 +56,6 @@
                 "precision": "very-high",
                 "tags": [
                   "resources.rules.remove-package-cache"
-                ]
-              }
-            },
-            {
-              "id": "eb908e4c-3fa1-32a7-8d8f-7899fa1a022b",
-              "name": "resources.rules.missing-image-version",
-              "shortDescription": {
-                "text": "Opengrep Finding: resources.rules.missing-image-version"
-              },
-              "fullDescription": {
-                "text": "Images should be tagged with an explicit version to produce deterministic container images."
-              },
-              "defaultConfiguration": {
-                "enabled": true,
-                "level": "warning"
-              },
-              "help": {
-                "text": "Images should be tagged with an explicit version to produce deterministic container images.\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
-                "markdown": "Images should be tagged with an explicit version to produce deterministic container images.\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [https://github.com/hadolint/hadolint/wiki/DL3006](https://github.com/hadolint/hadolint/wiki/DL3006)\n"
-              },
-              "properties": {
-                "precision": "very-high",
-                "tags": [
-                  "resources.rules.missing-image-version"
                 ]
               }
             },
@@ -110,74 +85,27 @@
               }
             },
             {
-              "id": "5406f1c1-075b-34a9-a4f2-cd9ff2ab7eb3",
-              "name": "resources.rules.missing-pip-no-cache-dir",
+              "id": "4f3161c1-4c1b-302d-87e2-f27b1e0a87ec",
+              "name": "dockerfile.security.missing-user-entrypoint.missing-user-entrypoint",
               "shortDescription": {
-                "text": "Opengrep Finding: resources.rules.missing-pip-no-cache-dir"
+                "text": "Opengrep Finding: dockerfile.security.missing-user-entrypoint.missing-user-entrypoint"
               },
               "fullDescription": {
-                "text": "This '$PIP install' is missing '--no-cache-dir'. This flag prevents\npackage archives from being kept around, thereby reducing image size.\nAdd '--no-cache-dir'.\n"
+                "text": "By not specifying a USER, a program in the container may run as 'root'. This is a security hazard. If an attacker can control a process running as root, they may have control over the container. Ensure that the last USER in a Dockerfile is a USER other than 'root'."
               },
               "defaultConfiguration": {
                 "enabled": true,
-                "level": "note"
+                "level": "error"
               },
+              "helpUri": "https://semgrep.dev/r/dockerfile.security.missing-user-entrypoint.missing-user-entrypoint",
               "help": {
-                "text": "This '$PIP install' is missing '--no-cache-dir'. This flag prevents\npackage archives from being kept around, thereby reducing image size.\nAdd '--no-cache-dir'.\n\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
-                "markdown": "This '$PIP install' is missing '--no-cache-dir'. This flag prevents\npackage archives from being kept around, thereby reducing image size.\nAdd '--no-cache-dir'.\n\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [https://github.com/hadolint/hadolint/wiki/DL3042](https://github.com/hadolint/hadolint/wiki/DL3042)\n"
+                "text": "By not specifying a USER, a program in the container may run as 'root'. This is a security hazard. If an attacker can control a process running as root, they may have control over the container. Ensure that the last USER in a Dockerfile is a USER other than 'root'.\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
+                "markdown": "By not specifying a USER, a program in the container may run as 'root'. This is a security hazard. If an attacker can control a process running as root, they may have control over the container. Ensure that the last USER in a Dockerfile is a USER other than 'root'.\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/dockerfile.security.missing-user-entrypoint.missing-user-entrypoint)\n - [https://owasp.org/Top10/A04_2021-Insecure_Design](https://owasp.org/Top10/A04_2021-Insecure_Design)\n"
               },
               "properties": {
                 "precision": "very-high",
                 "tags": [
-                  "resources.rules.missing-pip-no-cache-dir"
-                ]
-              }
-            },
-            {
-              "id": "39e5d4cc-14b0-3998-bb9f-f6a1ba57a23e",
-              "name": "resources.rules.missing-image-version",
-              "shortDescription": {
-                "text": "Opengrep Finding: resources.rules.missing-image-version"
-              },
-              "fullDescription": {
-                "text": "Images should be tagged with an explicit version to produce deterministic container images."
-              },
-              "defaultConfiguration": {
-                "enabled": true,
-                "level": "warning"
-              },
-              "help": {
-                "text": "Images should be tagged with an explicit version to produce deterministic container images.\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
-                "markdown": "Images should be tagged with an explicit version to produce deterministic container images.\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [https://github.com/hadolint/hadolint/wiki/DL3006](https://github.com/hadolint/hadolint/wiki/DL3006)\n"
-              },
-              "properties": {
-                "precision": "very-high",
-                "tags": [
-                  "resources.rules.missing-image-version"
-                ]
-              }
-            },
-            {
-              "id": "0446db19-7ab6-3e8b-8d1c-151eca33c2b3",
-              "name": "resources.rules.missing-pip-no-cache-dir",
-              "shortDescription": {
-                "text": "Opengrep Finding: resources.rules.missing-pip-no-cache-dir"
-              },
-              "fullDescription": {
-                "text": "This '$PIP install' is missing '--no-cache-dir'. This flag prevents\npackage archives from being kept around, thereby reducing image size.\nAdd '--no-cache-dir'.\n"
-              },
-              "defaultConfiguration": {
-                "enabled": true,
-                "level": "note"
-              },
-              "help": {
-                "text": "This '$PIP install' is missing '--no-cache-dir'. This flag prevents\npackage archives from being kept around, thereby reducing image size.\nAdd '--no-cache-dir'.\n\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
-                "markdown": "This '$PIP install' is missing '--no-cache-dir'. This flag prevents\npackage archives from being kept around, thereby reducing image size.\nAdd '--no-cache-dir'.\n\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [https://github.com/hadolint/hadolint/wiki/DL3042](https://github.com/hadolint/hadolint/wiki/DL3042)\n"
-              },
-              "properties": {
-                "precision": "very-high",
-                "tags": [
-                  "resources.rules.missing-pip-no-cache-dir"
+                  "dockerfile.security.missing-user-entrypoint.missing-user-entrypoint"
                 ]
               }
             },
@@ -206,7 +134,55 @@
               }
             },
             {
-              "id": "88f9de0d-3b65-39b8-9f89-2bfd56fbd15a",
+              "id": "5406f1c1-075b-34a9-a4f2-cd9ff2ab7eb3",
+              "name": "resources.rules.missing-pip-no-cache-dir",
+              "shortDescription": {
+                "text": "Opengrep Finding: resources.rules.missing-pip-no-cache-dir"
+              },
+              "fullDescription": {
+                "text": "This '$PIP install' is missing '--no-cache-dir'. This flag prevents\npackage archives from being kept around, thereby reducing image size.\nAdd '--no-cache-dir'.\n"
+              },
+              "defaultConfiguration": {
+                "enabled": true,
+                "level": "note"
+              },
+              "help": {
+                "text": "This '$PIP install' is missing '--no-cache-dir'. This flag prevents\npackage archives from being kept around, thereby reducing image size.\nAdd '--no-cache-dir'.\n\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
+                "markdown": "This '$PIP install' is missing '--no-cache-dir'. This flag prevents\npackage archives from being kept around, thereby reducing image size.\nAdd '--no-cache-dir'.\n\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [https://github.com/hadolint/hadolint/wiki/DL3042](https://github.com/hadolint/hadolint/wiki/DL3042)\n"
+              },
+              "properties": {
+                "precision": "very-high",
+                "tags": [
+                  "resources.rules.missing-pip-no-cache-dir"
+                ]
+              }
+            },
+            {
+              "id": "0446db19-7ab6-3e8b-8d1c-151eca33c2b3",
+              "name": "resources.rules.missing-pip-no-cache-dir",
+              "shortDescription": {
+                "text": "Opengrep Finding: resources.rules.missing-pip-no-cache-dir"
+              },
+              "fullDescription": {
+                "text": "This '$PIP install' is missing '--no-cache-dir'. This flag prevents\npackage archives from being kept around, thereby reducing image size.\nAdd '--no-cache-dir'.\n"
+              },
+              "defaultConfiguration": {
+                "enabled": true,
+                "level": "note"
+              },
+              "help": {
+                "text": "This '$PIP install' is missing '--no-cache-dir'. This flag prevents\npackage archives from being kept around, thereby reducing image size.\nAdd '--no-cache-dir'.\n\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
+                "markdown": "This '$PIP install' is missing '--no-cache-dir'. This flag prevents\npackage archives from being kept around, thereby reducing image size.\nAdd '--no-cache-dir'.\n\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [https://github.com/hadolint/hadolint/wiki/DL3042](https://github.com/hadolint/hadolint/wiki/DL3042)\n"
+              },
+              "properties": {
+                "precision": "very-high",
+                "tags": [
+                  "resources.rules.missing-pip-no-cache-dir"
+                ]
+              }
+            },
+            {
+              "id": "39e5d4cc-14b0-3998-bb9f-f6a1ba57a23e",
               "name": "resources.rules.missing-image-version",
               "shortDescription": {
                 "text": "Opengrep Finding: resources.rules.missing-image-version"
@@ -255,6 +231,30 @@
             },
             {
               "id": "10de2408-2d6b-369e-8802-ee5834f8895f",
+              "name": "resources.rules.missing-image-version",
+              "shortDescription": {
+                "text": "Opengrep Finding: resources.rules.missing-image-version"
+              },
+              "fullDescription": {
+                "text": "Images should be tagged with an explicit version to produce deterministic container images."
+              },
+              "defaultConfiguration": {
+                "enabled": true,
+                "level": "warning"
+              },
+              "help": {
+                "text": "Images should be tagged with an explicit version to produce deterministic container images.\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
+                "markdown": "Images should be tagged with an explicit version to produce deterministic container images.\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [https://github.com/hadolint/hadolint/wiki/DL3006](https://github.com/hadolint/hadolint/wiki/DL3006)\n"
+              },
+              "properties": {
+                "precision": "very-high",
+                "tags": [
+                  "resources.rules.missing-image-version"
+                ]
+              }
+            },
+            {
+              "id": "88f9de0d-3b65-39b8-9f89-2bfd56fbd15a",
               "name": "resources.rules.missing-image-version",
               "shortDescription": {
                 "text": "Opengrep Finding: resources.rules.missing-image-version"
@@ -350,30 +350,6 @@
               }
             },
             {
-              "id": "f9b26469-4d64-36b5-b37b-7e206405643e",
-              "name": "resources.rules.missing-ratelimit",
-              "shortDescription": {
-                "text": "Opengrep Finding: resources.rules.missing-ratelimit"
-              },
-              "fullDescription": {
-                "text": "Function '$FUNC' is missing a rate-limiting decorator.\nHigh volume traffic to this function could starve application\nresources. Consider adding rate limiting from a library such\nas 'django-ratelimit'.\n"
-              },
-              "defaultConfiguration": {
-                "enabled": true,
-                "level": "warning"
-              },
-              "help": {
-                "text": "Function '$FUNC' is missing a rate-limiting decorator.\nHigh volume traffic to this function could starve application\nresources. Consider adding rate limiting from a library such\nas 'django-ratelimit'.\n\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
-                "markdown": "Function '$FUNC' is missing a rate-limiting decorator.\nHigh volume traffic to this function could starve application\nresources. Consider adding rate limiting from a library such\nas 'django-ratelimit'.\n\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [https://github.com/jsocol/django-ratelimit/blob/main/docs/index.rst#quickstart](https://github.com/jsocol/django-ratelimit/blob/main/docs/index.rst#quickstart)\n"
-              },
-              "properties": {
-                "precision": "very-high",
-                "tags": [
-                  "resources.rules.missing-ratelimit"
-                ]
-              }
-            },
-            {
               "id": "f255b804-4f98-35ea-8e62-9feb49663df5",
               "name": "resources.rules.return-not-in-function",
               "shortDescription": {
@@ -394,6 +370,30 @@
                 "precision": "very-high",
                 "tags": [
                   "resources.rules.return-not-in-function"
+                ]
+              }
+            },
+            {
+              "id": "f9b26469-4d64-36b5-b37b-7e206405643e",
+              "name": "resources.rules.missing-ratelimit",
+              "shortDescription": {
+                "text": "Opengrep Finding: resources.rules.missing-ratelimit"
+              },
+              "fullDescription": {
+                "text": "Function '$FUNC' is missing a rate-limiting decorator.\nHigh volume traffic to this function could starve application\nresources. Consider adding rate limiting from a library such\nas 'django-ratelimit'.\n"
+              },
+              "defaultConfiguration": {
+                "enabled": true,
+                "level": "warning"
+              },
+              "help": {
+                "text": "Function '$FUNC' is missing a rate-limiting decorator.\nHigh volume traffic to this function could starve application\nresources. Consider adding rate limiting from a library such\nas 'django-ratelimit'.\n\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
+                "markdown": "Function '$FUNC' is missing a rate-limiting decorator.\nHigh volume traffic to this function could starve application\nresources. Consider adding rate limiting from a library such\nas 'django-ratelimit'.\n\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [https://github.com/jsocol/django-ratelimit/blob/main/docs/index.rst#quickstart](https://github.com/jsocol/django-ratelimit/blob/main/docs/index.rst#quickstart)\n"
+              },
+              "properties": {
+                "precision": "very-high",
+                "tags": [
+                  "resources.rules.missing-ratelimit"
                 ]
               }
             },
@@ -495,7 +495,7 @@
               }
             },
             {
-              "id": "1fa01245-a0d3-31eb-a68c-3d969b89c812",
+              "id": "5ae32e9b-f331-3565-926b-07c91370213c",
               "name": "resources.rules.return-not-in-function",
               "shortDescription": {
                 "text": "Opengrep Finding: resources.rules.return-not-in-function"
@@ -519,7 +519,7 @@
               }
             },
             {
-              "id": "5ae32e9b-f331-3565-926b-07c91370213c",
+              "id": "1fa01245-a0d3-31eb-a68c-3d969b89c812",
               "name": "resources.rules.return-not-in-function",
               "shortDescription": {
                 "text": "Opengrep Finding: resources.rules.return-not-in-function"
@@ -567,55 +567,31 @@
               }
             },
             {
-              "id": "95bb84ec-c21c-3170-852d-a733953919c1",
-              "name": "resources.rules.return-not-in-function",
-              "shortDescription": {
-                "text": "Opengrep Finding: resources.rules.return-not-in-function"
-              },
-              "fullDescription": {
-                "text": "`return` only makes sense inside a function"
-              },
-              "defaultConfiguration": {
-                "enabled": true,
-                "level": "warning"
-              },
-              "help": {
-                "text": "`return` only makes sense inside a function\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
-                "markdown": "`return` only makes sense inside a function\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>"
-              },
-              "properties": {
-                "precision": "very-high",
-                "tags": [
-                  "resources.rules.return-not-in-function"
-                ]
-              }
-            },
-            {
-              "id": "964cfc00-e009-3507-b23f-280f4b43db82",
-              "name": "resources.rules.return-not-in-function",
-              "shortDescription": {
-                "text": "Opengrep Finding: resources.rules.return-not-in-function"
-              },
-              "fullDescription": {
-                "text": "`return` only makes sense inside a function"
-              },
-              "defaultConfiguration": {
-                "enabled": true,
-                "level": "warning"
-              },
-              "help": {
-                "text": "`return` only makes sense inside a function\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
-                "markdown": "`return` only makes sense inside a function\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>"
-              },
-              "properties": {
-                "precision": "very-high",
-                "tags": [
-                  "resources.rules.return-not-in-function"
-                ]
-              }
-            },
-            {
               "id": "8f9545bb-0d35-3fb6-99d8-8ac644d8c32d",
+              "name": "resources.rules.return-not-in-function",
+              "shortDescription": {
+                "text": "Opengrep Finding: resources.rules.return-not-in-function"
+              },
+              "fullDescription": {
+                "text": "`return` only makes sense inside a function"
+              },
+              "defaultConfiguration": {
+                "enabled": true,
+                "level": "warning"
+              },
+              "help": {
+                "text": "`return` only makes sense inside a function\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
+                "markdown": "`return` only makes sense inside a function\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>"
+              },
+              "properties": {
+                "precision": "very-high",
+                "tags": [
+                  "resources.rules.return-not-in-function"
+                ]
+              }
+            },
+            {
+              "id": "95bb84ec-c21c-3170-852d-a733953919c1",
               "name": "resources.rules.return-not-in-function",
               "shortDescription": {
                 "text": "Opengrep Finding: resources.rules.return-not-in-function"
@@ -663,7 +639,7 @@
               }
             },
             {
-              "id": "bac700b7-14a7-31ef-9b96-e3b0de92b8a4",
+              "id": "964cfc00-e009-3507-b23f-280f4b43db82",
               "name": "resources.rules.return-not-in-function",
               "shortDescription": {
                 "text": "Opengrep Finding: resources.rules.return-not-in-function"
@@ -687,7 +663,7 @@
               }
             },
             {
-              "id": "13964f7a-1b4b-37a6-88d6-58ebc47dc210",
+              "id": "bac700b7-14a7-31ef-9b96-e3b0de92b8a4",
               "name": "resources.rules.return-not-in-function",
               "shortDescription": {
                 "text": "Opengrep Finding: resources.rules.return-not-in-function"
@@ -735,6 +711,30 @@
               }
             },
             {
+              "id": "13964f7a-1b4b-37a6-88d6-58ebc47dc210",
+              "name": "resources.rules.return-not-in-function",
+              "shortDescription": {
+                "text": "Opengrep Finding: resources.rules.return-not-in-function"
+              },
+              "fullDescription": {
+                "text": "`return` only makes sense inside a function"
+              },
+              "defaultConfiguration": {
+                "enabled": true,
+                "level": "warning"
+              },
+              "help": {
+                "text": "`return` only makes sense inside a function\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
+                "markdown": "`return` only makes sense inside a function\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>"
+              },
+              "properties": {
+                "precision": "very-high",
+                "tags": [
+                  "resources.rules.return-not-in-function"
+                ]
+              }
+            },
+            {
               "id": "f8ede59b-b8be-373c-a00c-aa35db182a49",
               "name": "resources.rules.return-not-in-function",
               "shortDescription": {
@@ -755,6 +755,30 @@
                 "precision": "very-high",
                 "tags": [
                   "resources.rules.return-not-in-function"
+                ]
+              }
+            },
+            {
+              "id": "a8107e39-e1b6-3d13-adcc-7817342cfb1b",
+              "name": "resources.rules.dlint-catastrophic-redos",
+              "shortDescription": {
+                "text": "Opengrep Finding: resources.rules.dlint-catastrophic-redos"
+              },
+              "fullDescription": {
+                "text": "Regex `$X` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)"
+              },
+              "defaultConfiguration": {
+                "enabled": true,
+                "level": "error"
+              },
+              "help": {
+                "text": "Regex `$X` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
+                "markdown": "Regex `$X` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [https://r2c.dev/blog/2020/finding-python-redos-bugs-at-scale-using-dlint-and-r2c/](https://r2c.dev/blog/2020/finding-python-redos-bugs-at-scale-using-dlint-and-r2c/)\n - [https://r2c.dev/blog/2020/improving-redos-detection-with-dlint-and-r2c/](https://r2c.dev/blog/2020/improving-redos-detection-with-dlint-and-r2c/)\n"
+              },
+              "properties": {
+                "precision": "very-high",
+                "tags": [
+                  "resources.rules.dlint-catastrophic-redos"
                 ]
               }
             },
@@ -784,56 +808,7 @@
               }
             },
             {
-              "id": "a8107e39-e1b6-3d13-adcc-7817342cfb1b",
-              "name": "resources.rules.dlint-catastrophic-redos",
-              "shortDescription": {
-                "text": "Opengrep Finding: resources.rules.dlint-catastrophic-redos"
-              },
-              "fullDescription": {
-                "text": "Regex `$X` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)"
-              },
-              "defaultConfiguration": {
-                "enabled": true,
-                "level": "error"
-              },
-              "help": {
-                "text": "Regex `$X` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
-                "markdown": "Regex `$X` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [https://r2c.dev/blog/2020/finding-python-redos-bugs-at-scale-using-dlint-and-r2c/](https://r2c.dev/blog/2020/finding-python-redos-bugs-at-scale-using-dlint-and-r2c/)\n - [https://r2c.dev/blog/2020/improving-redos-detection-with-dlint-and-r2c/](https://r2c.dev/blog/2020/improving-redos-detection-with-dlint-and-r2c/)\n"
-              },
-              "properties": {
-                "precision": "very-high",
-                "tags": [
-                  "resources.rules.dlint-catastrophic-redos"
-                ]
-              }
-            },
-            {
               "id": "7338d467-82cd-31ca-847c-ee12796e0f58",
-              "name": "python.lang.security.audit.non-literal-import.non-literal-import",
-              "shortDescription": {
-                "text": "Opengrep Finding: python.lang.security.audit.non-literal-import.non-literal-import"
-              },
-              "fullDescription": {
-                "text": "Untrusted user input in `importlib.import_module()` function allows an attacker to load arbitrary code. Avoid dynamic values in `importlib.import_module()` or use a whitelist to prevent running untrusted code."
-              },
-              "defaultConfiguration": {
-                "enabled": true,
-                "level": "warning"
-              },
-              "helpUri": "https://semgrep.dev/r/python.lang.security.audit.non-literal-import.non-literal-import",
-              "help": {
-                "text": "Untrusted user input in `importlib.import_module()` function allows an attacker to load arbitrary code. Avoid dynamic values in `importlib.import_module()` or use a whitelist to prevent running untrusted code.\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
-                "markdown": "Untrusted user input in `importlib.import_module()` function allows an attacker to load arbitrary code. Avoid dynamic values in `importlib.import_module()` or use a whitelist to prevent running untrusted code.\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/python.lang.security.audit.non-literal-import.non-literal-import)\n - [https://owasp.org/Top10/A01_2021-Broken_Access_Control](https://owasp.org/Top10/A01_2021-Broken_Access_Control)\n"
-              },
-              "properties": {
-                "precision": "very-high",
-                "tags": [
-                  "python.lang.security.audit.non-literal-import.non-literal-import"
-                ]
-              }
-            },
-            {
-              "id": "ddd67f86-8d70-3249-a77e-c0366b0ed7d2",
               "name": "python.lang.security.audit.non-literal-import.non-literal-import",
               "shortDescription": {
                 "text": "Opengrep Finding: python.lang.security.audit.non-literal-import.non-literal-import"
@@ -882,26 +857,27 @@
               }
             },
             {
-              "id": "2dcc969a-474c-369b-aedc-65ad9095656e",
-              "name": "resources.rules.return-not-in-function",
+              "id": "ddd67f86-8d70-3249-a77e-c0366b0ed7d2",
+              "name": "python.lang.security.audit.non-literal-import.non-literal-import",
               "shortDescription": {
-                "text": "Opengrep Finding: resources.rules.return-not-in-function"
+                "text": "Opengrep Finding: python.lang.security.audit.non-literal-import.non-literal-import"
               },
               "fullDescription": {
-                "text": "`return` only makes sense inside a function"
+                "text": "Untrusted user input in `importlib.import_module()` function allows an attacker to load arbitrary code. Avoid dynamic values in `importlib.import_module()` or use a whitelist to prevent running untrusted code."
               },
               "defaultConfiguration": {
                 "enabled": true,
                 "level": "warning"
               },
+              "helpUri": "https://semgrep.dev/r/python.lang.security.audit.non-literal-import.non-literal-import",
               "help": {
-                "text": "`return` only makes sense inside a function\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
-                "markdown": "`return` only makes sense inside a function\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>"
+                "text": "Untrusted user input in `importlib.import_module()` function allows an attacker to load arbitrary code. Avoid dynamic values in `importlib.import_module()` or use a whitelist to prevent running untrusted code.\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
+                "markdown": "Untrusted user input in `importlib.import_module()` function allows an attacker to load arbitrary code. Avoid dynamic values in `importlib.import_module()` or use a whitelist to prevent running untrusted code.\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/python.lang.security.audit.non-literal-import.non-literal-import)\n - [https://owasp.org/Top10/A01_2021-Broken_Access_Control](https://owasp.org/Top10/A01_2021-Broken_Access_Control)\n"
               },
               "properties": {
                 "precision": "very-high",
                 "tags": [
-                  "resources.rules.return-not-in-function"
+                  "python.lang.security.audit.non-literal-import.non-literal-import"
                 ]
               }
             },
@@ -930,7 +906,31 @@
               }
             },
             {
-              "id": "0f5a6f6f-e8a1-3a3e-87fb-4517b0e8e8ff",
+              "id": "2dcc969a-474c-369b-aedc-65ad9095656e",
+              "name": "resources.rules.return-not-in-function",
+              "shortDescription": {
+                "text": "Opengrep Finding: resources.rules.return-not-in-function"
+              },
+              "fullDescription": {
+                "text": "`return` only makes sense inside a function"
+              },
+              "defaultConfiguration": {
+                "enabled": true,
+                "level": "warning"
+              },
+              "help": {
+                "text": "`return` only makes sense inside a function\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
+                "markdown": "`return` only makes sense inside a function\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>"
+              },
+              "properties": {
+                "precision": "very-high",
+                "tags": [
+                  "resources.rules.return-not-in-function"
+                ]
+              }
+            },
+            {
+              "id": "833bfa0d-a30b-3380-b28e-bb848971fb5d",
               "name": "resources.rules.missing-ratelimit",
               "shortDescription": {
                 "text": "Opengrep Finding: resources.rules.missing-ratelimit"
@@ -954,7 +954,7 @@
               }
             },
             {
-              "id": "833bfa0d-a30b-3380-b28e-bb848971fb5d",
+              "id": "0f5a6f6f-e8a1-3a3e-87fb-4517b0e8e8ff",
               "name": "resources.rules.missing-ratelimit",
               "shortDescription": {
                 "text": "Opengrep Finding: resources.rules.missing-ratelimit"
@@ -1050,6 +1050,30 @@
               }
             },
             {
+              "id": "06af2c6a-2bcf-3d0f-9618-5cac23a3618d",
+              "name": "resources.rules.missing-ratelimit",
+              "shortDescription": {
+                "text": "Opengrep Finding: resources.rules.missing-ratelimit"
+              },
+              "fullDescription": {
+                "text": "Function '$FUNC' is missing a rate-limiting decorator.\nHigh volume traffic to this function could starve application\nresources. Consider adding rate limiting from a library such\nas 'django-ratelimit'.\n"
+              },
+              "defaultConfiguration": {
+                "enabled": true,
+                "level": "warning"
+              },
+              "help": {
+                "text": "Function '$FUNC' is missing a rate-limiting decorator.\nHigh volume traffic to this function could starve application\nresources. Consider adding rate limiting from a library such\nas 'django-ratelimit'.\n\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
+                "markdown": "Function '$FUNC' is missing a rate-limiting decorator.\nHigh volume traffic to this function could starve application\nresources. Consider adding rate limiting from a library such\nas 'django-ratelimit'.\n\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [https://github.com/jsocol/django-ratelimit/blob/main/docs/index.rst#quickstart](https://github.com/jsocol/django-ratelimit/blob/main/docs/index.rst#quickstart)\n"
+              },
+              "properties": {
+                "precision": "very-high",
+                "tags": [
+                  "resources.rules.missing-ratelimit"
+                ]
+              }
+            },
+            {
               "id": "83cd393f-53fb-3f4d-bc38-7d10da405a09",
               "name": "resources.rules.missing-ratelimit",
               "shortDescription": {
@@ -1098,30 +1122,6 @@
               }
             },
             {
-              "id": "06af2c6a-2bcf-3d0f-9618-5cac23a3618d",
-              "name": "resources.rules.missing-ratelimit",
-              "shortDescription": {
-                "text": "Opengrep Finding: resources.rules.missing-ratelimit"
-              },
-              "fullDescription": {
-                "text": "Function '$FUNC' is missing a rate-limiting decorator.\nHigh volume traffic to this function could starve application\nresources. Consider adding rate limiting from a library such\nas 'django-ratelimit'.\n"
-              },
-              "defaultConfiguration": {
-                "enabled": true,
-                "level": "warning"
-              },
-              "help": {
-                "text": "Function '$FUNC' is missing a rate-limiting decorator.\nHigh volume traffic to this function could starve application\nresources. Consider adding rate limiting from a library such\nas 'django-ratelimit'.\n\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
-                "markdown": "Function '$FUNC' is missing a rate-limiting decorator.\nHigh volume traffic to this function could starve application\nresources. Consider adding rate limiting from a library such\nas 'django-ratelimit'.\n\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [https://github.com/jsocol/django-ratelimit/blob/main/docs/index.rst#quickstart](https://github.com/jsocol/django-ratelimit/blob/main/docs/index.rst#quickstart)\n"
-              },
-              "properties": {
-                "precision": "very-high",
-                "tags": [
-                  "resources.rules.missing-ratelimit"
-                ]
-              }
-            },
-            {
               "id": "30021810-c529-3318-a87c-c1a727b3b147",
               "name": "resources.rules.return-not-in-function",
               "shortDescription": {
@@ -1142,30 +1142,6 @@
                 "precision": "very-high",
                 "tags": [
                   "resources.rules.return-not-in-function"
-                ]
-              }
-            },
-            {
-              "id": "5421c308-0687-32c7-83f1-2b730ff23787",
-              "name": "resources.rules.missing-ratelimit",
-              "shortDescription": {
-                "text": "Opengrep Finding: resources.rules.missing-ratelimit"
-              },
-              "fullDescription": {
-                "text": "Function '$FUNC' is missing a rate-limiting decorator.\nHigh volume traffic to this function could starve application\nresources. Consider adding rate limiting from a library such\nas 'django-ratelimit'.\n"
-              },
-              "defaultConfiguration": {
-                "enabled": true,
-                "level": "warning"
-              },
-              "help": {
-                "text": "Function '$FUNC' is missing a rate-limiting decorator.\nHigh volume traffic to this function could starve application\nresources. Consider adding rate limiting from a library such\nas 'django-ratelimit'.\n\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
-                "markdown": "Function '$FUNC' is missing a rate-limiting decorator.\nHigh volume traffic to this function could starve application\nresources. Consider adding rate limiting from a library such\nas 'django-ratelimit'.\n\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [https://github.com/jsocol/django-ratelimit/blob/main/docs/index.rst#quickstart](https://github.com/jsocol/django-ratelimit/blob/main/docs/index.rst#quickstart)\n"
-              },
-              "properties": {
-                "precision": "very-high",
-                "tags": [
-                  "resources.rules.missing-ratelimit"
                 ]
               }
             },
@@ -1191,6 +1167,30 @@
                 "precision": "very-high",
                 "tags": [
                   "python.lang.security.audit.non-literal-import.non-literal-import"
+                ]
+              }
+            },
+            {
+              "id": "5421c308-0687-32c7-83f1-2b730ff23787",
+              "name": "resources.rules.missing-ratelimit",
+              "shortDescription": {
+                "text": "Opengrep Finding: resources.rules.missing-ratelimit"
+              },
+              "fullDescription": {
+                "text": "Function '$FUNC' is missing a rate-limiting decorator.\nHigh volume traffic to this function could starve application\nresources. Consider adding rate limiting from a library such\nas 'django-ratelimit'.\n"
+              },
+              "defaultConfiguration": {
+                "enabled": true,
+                "level": "warning"
+              },
+              "help": {
+                "text": "Function '$FUNC' is missing a rate-limiting decorator.\nHigh volume traffic to this function could starve application\nresources. Consider adding rate limiting from a library such\nas 'django-ratelimit'.\n\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
+                "markdown": "Function '$FUNC' is missing a rate-limiting decorator.\nHigh volume traffic to this function could starve application\nresources. Consider adding rate limiting from a library such\nas 'django-ratelimit'.\n\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [https://github.com/jsocol/django-ratelimit/blob/main/docs/index.rst#quickstart](https://github.com/jsocol/django-ratelimit/blob/main/docs/index.rst#quickstart)\n"
+              },
+              "properties": {
+                "precision": "very-high",
+                "tags": [
+                  "resources.rules.missing-ratelimit"
                 ]
               }
             },
@@ -1292,31 +1292,6 @@
               }
             },
             {
-              "id": "1e797457-82ce-3ff4-8adf-60451123135e",
-              "name": "python.lang.security.audit.non-literal-import.non-literal-import",
-              "shortDescription": {
-                "text": "Opengrep Finding: python.lang.security.audit.non-literal-import.non-literal-import"
-              },
-              "fullDescription": {
-                "text": "Untrusted user input in `importlib.import_module()` function allows an attacker to load arbitrary code. Avoid dynamic values in `importlib.import_module()` or use a whitelist to prevent running untrusted code."
-              },
-              "defaultConfiguration": {
-                "enabled": true,
-                "level": "warning"
-              },
-              "helpUri": "https://semgrep.dev/r/python.lang.security.audit.non-literal-import.non-literal-import",
-              "help": {
-                "text": "Untrusted user input in `importlib.import_module()` function allows an attacker to load arbitrary code. Avoid dynamic values in `importlib.import_module()` or use a whitelist to prevent running untrusted code.\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
-                "markdown": "Untrusted user input in `importlib.import_module()` function allows an attacker to load arbitrary code. Avoid dynamic values in `importlib.import_module()` or use a whitelist to prevent running untrusted code.\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/python.lang.security.audit.non-literal-import.non-literal-import)\n - [https://owasp.org/Top10/A01_2021-Broken_Access_Control](https://owasp.org/Top10/A01_2021-Broken_Access_Control)\n"
-              },
-              "properties": {
-                "precision": "very-high",
-                "tags": [
-                  "python.lang.security.audit.non-literal-import.non-literal-import"
-                ]
-              }
-            },
-            {
               "id": "861202c7-b15a-3dc4-aa48-a725437fa772",
               "name": "python.lang.security.audit.non-literal-import.non-literal-import",
               "shortDescription": {
@@ -1342,26 +1317,52 @@
               }
             },
             {
-              "id": "9bff63d0-5da5-35ba-be40-77849e4b2190",
-              "name": "resources.rules.dlint-catastrophic-redos",
+              "id": "1e797457-82ce-3ff4-8adf-60451123135e",
+              "name": "python.lang.security.audit.non-literal-import.non-literal-import",
               "shortDescription": {
-                "text": "Opengrep Finding: resources.rules.dlint-catastrophic-redos"
+                "text": "Opengrep Finding: python.lang.security.audit.non-literal-import.non-literal-import"
               },
               "fullDescription": {
-                "text": "Regex `$X` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)"
+                "text": "Untrusted user input in `importlib.import_module()` function allows an attacker to load arbitrary code. Avoid dynamic values in `importlib.import_module()` or use a whitelist to prevent running untrusted code."
               },
               "defaultConfiguration": {
                 "enabled": true,
-                "level": "error"
+                "level": "warning"
               },
+              "helpUri": "https://semgrep.dev/r/python.lang.security.audit.non-literal-import.non-literal-import",
               "help": {
-                "text": "Regex `$X` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
-                "markdown": "Regex `$X` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [https://r2c.dev/blog/2020/finding-python-redos-bugs-at-scale-using-dlint-and-r2c/](https://r2c.dev/blog/2020/finding-python-redos-bugs-at-scale-using-dlint-and-r2c/)\n - [https://r2c.dev/blog/2020/improving-redos-detection-with-dlint-and-r2c/](https://r2c.dev/blog/2020/improving-redos-detection-with-dlint-and-r2c/)\n"
+                "text": "Untrusted user input in `importlib.import_module()` function allows an attacker to load arbitrary code. Avoid dynamic values in `importlib.import_module()` or use a whitelist to prevent running untrusted code.\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
+                "markdown": "Untrusted user input in `importlib.import_module()` function allows an attacker to load arbitrary code. Avoid dynamic values in `importlib.import_module()` or use a whitelist to prevent running untrusted code.\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/python.lang.security.audit.non-literal-import.non-literal-import)\n - [https://owasp.org/Top10/A01_2021-Broken_Access_Control](https://owasp.org/Top10/A01_2021-Broken_Access_Control)\n"
               },
               "properties": {
                 "precision": "very-high",
                 "tags": [
-                  "resources.rules.dlint-catastrophic-redos"
+                  "python.lang.security.audit.non-literal-import.non-literal-import"
+                ]
+              }
+            },
+            {
+              "id": "a0ee3fe3-aafa-376a-9d8f-ef70a200a1f6",
+              "name": "python.lang.security.audit.non-literal-import.non-literal-import",
+              "shortDescription": {
+                "text": "Opengrep Finding: python.lang.security.audit.non-literal-import.non-literal-import"
+              },
+              "fullDescription": {
+                "text": "Untrusted user input in `importlib.import_module()` function allows an attacker to load arbitrary code. Avoid dynamic values in `importlib.import_module()` or use a whitelist to prevent running untrusted code."
+              },
+              "defaultConfiguration": {
+                "enabled": true,
+                "level": "warning"
+              },
+              "helpUri": "https://semgrep.dev/r/python.lang.security.audit.non-literal-import.non-literal-import",
+              "help": {
+                "text": "Untrusted user input in `importlib.import_module()` function allows an attacker to load arbitrary code. Avoid dynamic values in `importlib.import_module()` or use a whitelist to prevent running untrusted code.\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
+                "markdown": "Untrusted user input in `importlib.import_module()` function allows an attacker to load arbitrary code. Avoid dynamic values in `importlib.import_module()` or use a whitelist to prevent running untrusted code.\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/python.lang.security.audit.non-literal-import.non-literal-import)\n - [https://owasp.org/Top10/A01_2021-Broken_Access_Control](https://owasp.org/Top10/A01_2021-Broken_Access_Control)\n"
+              },
+              "properties": {
+                "precision": "very-high",
+                "tags": [
+                  "python.lang.security.audit.non-literal-import.non-literal-import"
                 ]
               }
             },
@@ -1390,6 +1391,30 @@
               }
             },
             {
+              "id": "9bff63d0-5da5-35ba-be40-77849e4b2190",
+              "name": "resources.rules.dlint-catastrophic-redos",
+              "shortDescription": {
+                "text": "Opengrep Finding: resources.rules.dlint-catastrophic-redos"
+              },
+              "fullDescription": {
+                "text": "Regex `$X` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)"
+              },
+              "defaultConfiguration": {
+                "enabled": true,
+                "level": "error"
+              },
+              "help": {
+                "text": "Regex `$X` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
+                "markdown": "Regex `$X` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [https://r2c.dev/blog/2020/finding-python-redos-bugs-at-scale-using-dlint-and-r2c/](https://r2c.dev/blog/2020/finding-python-redos-bugs-at-scale-using-dlint-and-r2c/)\n - [https://r2c.dev/blog/2020/improving-redos-detection-with-dlint-and-r2c/](https://r2c.dev/blog/2020/improving-redos-detection-with-dlint-and-r2c/)\n"
+              },
+              "properties": {
+                "precision": "very-high",
+                "tags": [
+                  "resources.rules.dlint-catastrophic-redos"
+                ]
+              }
+            },
+            {
               "id": "462b8d2e-1512-37ac-8884-9172eec4a516",
               "name": "resources.rules.dangerous-subprocess-use",
               "shortDescription": {
@@ -1414,27 +1439,26 @@
               }
             },
             {
-              "id": "a0ee3fe3-aafa-376a-9d8f-ef70a200a1f6",
-              "name": "python.lang.security.audit.non-literal-import.non-literal-import",
+              "id": "5f804616-570b-396c-aa34-c53fcd1c5f23",
+              "name": "resources.rules.dangerous-subprocess-use",
               "shortDescription": {
-                "text": "Opengrep Finding: python.lang.security.audit.non-literal-import.non-literal-import"
+                "text": "Opengrep Finding: resources.rules.dangerous-subprocess-use"
               },
               "fullDescription": {
-                "text": "Untrusted user input in `importlib.import_module()` function allows an attacker to load arbitrary code. Avoid dynamic values in `importlib.import_module()` or use a whitelist to prevent running untrusted code."
+                "text": "Detected subprocess function '$FUNC' without a static string. If this data can be\ncontrolled by a malicious actor, it may be an instance of command injection.\nAudit the use of this call to ensure it is not controllable by an external resource.\nYou may consider using 'shlex.escape()'.\n"
               },
               "defaultConfiguration": {
                 "enabled": true,
                 "level": "warning"
               },
-              "helpUri": "https://semgrep.dev/r/python.lang.security.audit.non-literal-import.non-literal-import",
               "help": {
-                "text": "Untrusted user input in `importlib.import_module()` function allows an attacker to load arbitrary code. Avoid dynamic values in `importlib.import_module()` or use a whitelist to prevent running untrusted code.\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
-                "markdown": "Untrusted user input in `importlib.import_module()` function allows an attacker to load arbitrary code. Avoid dynamic values in `importlib.import_module()` or use a whitelist to prevent running untrusted code.\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/python.lang.security.audit.non-literal-import.non-literal-import)\n - [https://owasp.org/Top10/A01_2021-Broken_Access_Control](https://owasp.org/Top10/A01_2021-Broken_Access_Control)\n"
+                "text": "Detected subprocess function '$FUNC' without a static string. If this data can be\ncontrolled by a malicious actor, it may be an instance of command injection.\nAudit the use of this call to ensure it is not controllable by an external resource.\nYou may consider using 'shlex.escape()'.\n\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
+                "markdown": "Detected subprocess function '$FUNC' without a static string. If this data can be\ncontrolled by a malicious actor, it may be an instance of command injection.\nAudit the use of this call to ensure it is not controllable by an external resource.\nYou may consider using 'shlex.escape()'.\n\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [https://stackoverflow.com/questions/3172470/actual-meaning-of-shell-true-in-subprocess](https://stackoverflow.com/questions/3172470/actual-meaning-of-shell-true-in-subprocess)\n - [https://docs.python.org/3/library/subprocess.html](https://docs.python.org/3/library/subprocess.html)\n - [https://docs.python.org/3/library/shlex.html](https://docs.python.org/3/library/shlex.html)\n"
               },
               "properties": {
                 "precision": "very-high",
                 "tags": [
-                  "python.lang.security.audit.non-literal-import.non-literal-import"
+                  "resources.rules.dangerous-subprocess-use"
                 ]
               }
             },
@@ -1511,30 +1535,6 @@
               }
             },
             {
-              "id": "5f804616-570b-396c-aa34-c53fcd1c5f23",
-              "name": "resources.rules.dangerous-subprocess-use",
-              "shortDescription": {
-                "text": "Opengrep Finding: resources.rules.dangerous-subprocess-use"
-              },
-              "fullDescription": {
-                "text": "Detected subprocess function '$FUNC' without a static string. If this data can be\ncontrolled by a malicious actor, it may be an instance of command injection.\nAudit the use of this call to ensure it is not controllable by an external resource.\nYou may consider using 'shlex.escape()'.\n"
-              },
-              "defaultConfiguration": {
-                "enabled": true,
-                "level": "warning"
-              },
-              "help": {
-                "text": "Detected subprocess function '$FUNC' without a static string. If this data can be\ncontrolled by a malicious actor, it may be an instance of command injection.\nAudit the use of this call to ensure it is not controllable by an external resource.\nYou may consider using 'shlex.escape()'.\n\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
-                "markdown": "Detected subprocess function '$FUNC' without a static string. If this data can be\ncontrolled by a malicious actor, it may be an instance of command injection.\nAudit the use of this call to ensure it is not controllable by an external resource.\nYou may consider using 'shlex.escape()'.\n\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [https://stackoverflow.com/questions/3172470/actual-meaning-of-shell-true-in-subprocess](https://stackoverflow.com/questions/3172470/actual-meaning-of-shell-true-in-subprocess)\n - [https://docs.python.org/3/library/subprocess.html](https://docs.python.org/3/library/subprocess.html)\n - [https://docs.python.org/3/library/shlex.html](https://docs.python.org/3/library/shlex.html)\n"
-              },
-              "properties": {
-                "precision": "very-high",
-                "tags": [
-                  "resources.rules.dangerous-subprocess-use"
-                ]
-              }
-            },
-            {
               "id": "441cd2c1-21a5-37b2-9dc0-a781bba2771b",
               "name": "resources.rules.insecure-xml-use",
               "shortDescription": {
@@ -1555,31 +1555,6 @@
                 "precision": "very-high",
                 "tags": [
                   "resources.rules.insecure-xml-use"
-                ]
-              }
-            },
-            {
-              "id": "367eb6ae-9ff0-36c4-b450-fa34ac8d0677",
-              "name": "python.flask.security.xss.audit.direct-use-of-jinja2.direct-use-of-jinja2",
-              "shortDescription": {
-                "text": "Opengrep Finding: python.flask.security.xss.audit.direct-use-of-jinja2.direct-use-of-jinja2"
-              },
-              "fullDescription": {
-                "text": "Detected direct use of jinja2. If not done properly, this may bypass HTML escaping which opens up the application to cross-site scripting (XSS) vulnerabilities. Prefer using the Flask method 'render_template()' and templates with a '.html' extension in order to prevent XSS."
-              },
-              "defaultConfiguration": {
-                "enabled": true,
-                "level": "warning"
-              },
-              "helpUri": "https://semgrep.dev/r/python.flask.security.xss.audit.direct-use-of-jinja2.direct-use-of-jinja2",
-              "help": {
-                "text": "Detected direct use of jinja2. If not done properly, this may bypass HTML escaping which opens up the application to cross-site scripting (XSS) vulnerabilities. Prefer using the Flask method 'render_template()' and templates with a '.html' extension in order to prevent XSS.\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
-                "markdown": "Detected direct use of jinja2. If not done properly, this may bypass HTML escaping which opens up the application to cross-site scripting (XSS) vulnerabilities. Prefer using the Flask method 'render_template()' and templates with a '.html' extension in order to prevent XSS.\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/python.flask.security.xss.audit.direct-use-of-jinja2.direct-use-of-jinja2)\n - [https://jinja.palletsprojects.com/en/2.11.x/api/#basics](https://jinja.palletsprojects.com/en/2.11.x/api/#basics)\n"
-              },
-              "properties": {
-                "precision": "very-high",
-                "tags": [
-                  "python.flask.security.xss.audit.direct-use-of-jinja2.direct-use-of-jinja2"
                 ]
               }
             },
@@ -1632,6 +1607,31 @@
                   "bash.lang.security.ifs-tampering.ifs-tampering"
                 ]
               }
+            },
+            {
+              "id": "367eb6ae-9ff0-36c4-b450-fa34ac8d0677",
+              "name": "python.flask.security.xss.audit.direct-use-of-jinja2.direct-use-of-jinja2",
+              "shortDescription": {
+                "text": "Opengrep Finding: python.flask.security.xss.audit.direct-use-of-jinja2.direct-use-of-jinja2"
+              },
+              "fullDescription": {
+                "text": "Detected direct use of jinja2. If not done properly, this may bypass HTML escaping which opens up the application to cross-site scripting (XSS) vulnerabilities. Prefer using the Flask method 'render_template()' and templates with a '.html' extension in order to prevent XSS."
+              },
+              "defaultConfiguration": {
+                "enabled": true,
+                "level": "warning"
+              },
+              "helpUri": "https://semgrep.dev/r/python.flask.security.xss.audit.direct-use-of-jinja2.direct-use-of-jinja2",
+              "help": {
+                "text": "Detected direct use of jinja2. If not done properly, this may bypass HTML escaping which opens up the application to cross-site scripting (XSS) vulnerabilities. Prefer using the Flask method 'render_template()' and templates with a '.html' extension in order to prevent XSS.\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
+                "markdown": "Detected direct use of jinja2. If not done properly, this may bypass HTML escaping which opens up the application to cross-site scripting (XSS) vulnerabilities. Prefer using the Flask method 'render_template()' and templates with a '.html' extension in order to prevent XSS.\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/python.flask.security.xss.audit.direct-use-of-jinja2.direct-use-of-jinja2)\n - [https://jinja.palletsprojects.com/en/2.11.x/api/#basics](https://jinja.palletsprojects.com/en/2.11.x/api/#basics)\n"
+              },
+              "properties": {
+                "precision": "very-high",
+                "tags": [
+                  "python.flask.security.xss.audit.direct-use-of-jinja2.direct-use-of-jinja2"
+                ]
+              }
             }
           ],
           "language": "en-US",
@@ -1644,37 +1644,6 @@
       },
       "language": "en-US",
       "results": [
-        {
-          "ruleId": "4f3161c1-4c1b-302d-87e2-f27b1e0a87ec",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "By not specifying a USER, a program in the container may run as 'root'. This is a security hazard. If an attacker can control a process running as root, they may have control over the container. Ensure that the last USER in a Dockerfile is a USER other than 'root'."
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "Dockerfile",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 45,
-                  "startColumn": 1,
-                  "endLine": 45,
-                  "endColumn": 40,
-                  "snippet": {
-                    "text": "ENTRYPOINT [\"python3\", \"-m\", \"openllm\"]"
-                  }
-                }
-              }
-            }
-          ],
-          "fingerprints": {
-            "matchBasedId/v1": "818ebe7aad2ce0b7bf4565a9db5f27f0aba95a426ea54eec13694ac16eec77eaf9d9c5534b7ec7139c52dcdf544fe6ec5c85087325529c973b0a635537ec7218_0"
-          },
-          "properties": {}
-        },
         {
           "ruleId": "8c4c5fcc-e380-37e6-845c-b011d1b189d5",
           "kind": "fail",
@@ -1769,95 +1738,33 @@
           "properties": {}
         },
         {
-          "ruleId": "5406f1c1-075b-34a9-a4f2-cd9ff2ab7eb3",
+          "ruleId": "4f3161c1-4c1b-302d-87e2-f27b1e0a87ec",
           "kind": "fail",
           "level": "warning",
           "message": {
-            "text": "This 'pip install' is missing '--no-cache-dir'. This flag prevents\npackage archives from being kept around, thereby reducing image size.\nAdd '--no-cache-dir'.\n"
+            "text": "By not specifying a USER, a program in the container may run as 'root'. This is a security hazard. If an attacker can control a process running as root, they may have control over the container. Ensure that the last USER in a Dockerfile is a USER other than 'root'."
           },
           "locations": [
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "openllm-client/dev.Dockerfile",
+                  "uri": "Dockerfile",
                   "uriBaseId": "%SRCROOT%"
                 },
                 "region": {
-                  "startLine": 23,
+                  "startLine": 45,
                   "startColumn": 1,
-                  "endLine": 23,
-                  "endColumn": 62,
+                  "endLine": 45,
+                  "endColumn": 40,
                   "snippet": {
-                    "text": "RUN --mount=type=cache,target=/root/.cache/pip pip install -r requirements.txt"
+                    "text": "ENTRYPOINT [\"python3\", \"-m\", \"openllm\"]"
                   }
                 }
               }
             }
           ],
           "fingerprints": {
-            "matchBasedId/v1": "f505fb43cd4a9922145cc0aa2e8692346a68f6e8ad4a9dc60766094113db82e76d51e28f1dbc74a09ff33cf4f4bb9fe16e5d4b9a29ddddfb1ac7ac0e99bcc018_0"
-          },
-          "properties": {}
-        },
-        {
-          "ruleId": "39e5d4cc-14b0-3998-bb9f-f6a1ba57a23e",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "Images should be tagged with an explicit version to produce deterministic container images."
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "openllm-client/dev.Dockerfile",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 25,
-                  "startColumn": 1,
-                  "endLine": 25,
-                  "endColumn": 10,
-                  "snippet": {
-                    "text": "FROM base as protobuf-4"
-                  }
-                }
-              }
-            }
-          ],
-          "fingerprints": {
-            "matchBasedId/v1": "f2edff90db2d800d01bf75dc9702db4687597ed45544de1ac7d49ecc4b0937d301f134829d33668861773eb82fa918c7107eeea181b3dca8e00b262589df6286_1"
-          },
-          "properties": {}
-        },
-        {
-          "ruleId": "0446db19-7ab6-3e8b-8d1c-151eca33c2b3",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "This 'pip install' is missing '--no-cache-dir'. This flag prevents\npackage archives from being kept around, thereby reducing image size.\nAdd '--no-cache-dir'.\n"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "openllm-client/dev.Dockerfile",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 33,
-                  "startColumn": 1,
-                  "endLine": 33,
-                  "endColumn": 62,
-                  "snippet": {
-                    "text": "RUN --mount=type=cache,target=/root/.cache/pip pip install -r requirements.txt"
-                  }
-                }
-              }
-            }
-          ],
-          "fingerprints": {
-            "matchBasedId/v1": "f505fb43cd4a9922145cc0aa2e8692346a68f6e8ad4a9dc60766094113db82e76d51e28f1dbc74a09ff33cf4f4bb9fe16e5d4b9a29ddddfb1ac7ac0e99bcc018_1"
+            "matchBasedId/v1": "818ebe7aad2ce0b7bf4565a9db5f27f0aba95a426ea54eec13694ac16eec77eaf9d9c5534b7ec7139c52dcdf544fe6ec5c85087325529c973b0a635537ec7218_0"
           },
           "properties": {}
         },
@@ -1893,7 +1800,69 @@
           "properties": {}
         },
         {
-          "ruleId": "88f9de0d-3b65-39b8-9f89-2bfd56fbd15a",
+          "ruleId": "5406f1c1-075b-34a9-a4f2-cd9ff2ab7eb3",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "This 'pip install' is missing '--no-cache-dir'. This flag prevents\npackage archives from being kept around, thereby reducing image size.\nAdd '--no-cache-dir'.\n"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "openllm-client/dev.Dockerfile",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 23,
+                  "startColumn": 1,
+                  "endLine": 23,
+                  "endColumn": 62,
+                  "snippet": {
+                    "text": "RUN --mount=type=cache,target=/root/.cache/pip pip install -r requirements.txt"
+                  }
+                }
+              }
+            }
+          ],
+          "fingerprints": {
+            "matchBasedId/v1": "f505fb43cd4a9922145cc0aa2e8692346a68f6e8ad4a9dc60766094113db82e76d51e28f1dbc74a09ff33cf4f4bb9fe16e5d4b9a29ddddfb1ac7ac0e99bcc018_0"
+          },
+          "properties": {}
+        },
+        {
+          "ruleId": "0446db19-7ab6-3e8b-8d1c-151eca33c2b3",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "This 'pip install' is missing '--no-cache-dir'. This flag prevents\npackage archives from being kept around, thereby reducing image size.\nAdd '--no-cache-dir'.\n"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "openllm-client/dev.Dockerfile",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 33,
+                  "startColumn": 1,
+                  "endLine": 33,
+                  "endColumn": 62,
+                  "snippet": {
+                    "text": "RUN --mount=type=cache,target=/root/.cache/pip pip install -r requirements.txt"
+                  }
+                }
+              }
+            }
+          ],
+          "fingerprints": {
+            "matchBasedId/v1": "f505fb43cd4a9922145cc0aa2e8692346a68f6e8ad4a9dc60766094113db82e76d51e28f1dbc74a09ff33cf4f4bb9fe16e5d4b9a29ddddfb1ac7ac0e99bcc018_1"
+          },
+          "properties": {}
+        },
+        {
+          "ruleId": "39e5d4cc-14b0-3998-bb9f-f6a1ba57a23e",
           "kind": "fail",
           "level": "warning",
           "message": {
@@ -1907,19 +1876,19 @@
                   "uriBaseId": "%SRCROOT%"
                 },
                 "region": {
-                  "startLine": 72,
+                  "startLine": 25,
                   "startColumn": 1,
-                  "endLine": 72,
-                  "endColumn": 14,
+                  "endLine": 25,
+                  "endColumn": 10,
                   "snippet": {
-                    "text": "FROM protobuf-4 as run-grpcio-tools-4"
+                    "text": "FROM base as protobuf-4"
                   }
                 }
               }
             }
           ],
           "fingerprints": {
-            "matchBasedId/v1": "1872247491a2c4ff65c7608ff6624d342ece3d411dfd7bed55c8b8aab492ffebc36ca2b89c38bdc3910192be5d20818810c9b143cd9cac243034b1fb0fffa90d_1"
+            "matchBasedId/v1": "f2edff90db2d800d01bf75dc9702db4687597ed45544de1ac7d49ecc4b0937d301f134829d33668861773eb82fa918c7107eeea181b3dca8e00b262589df6286_1"
           },
           "properties": {}
         },
@@ -1982,6 +1951,37 @@
           ],
           "fingerprints": {
             "matchBasedId/v1": "1872247491a2c4ff65c7608ff6624d342ece3d411dfd7bed55c8b8aab492ffebc36ca2b89c38bdc3910192be5d20818810c9b143cd9cac243034b1fb0fffa90d_0"
+          },
+          "properties": {}
+        },
+        {
+          "ruleId": "88f9de0d-3b65-39b8-9f89-2bfd56fbd15a",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Images should be tagged with an explicit version to produce deterministic container images."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "openllm-client/dev.Dockerfile",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 72,
+                  "startColumn": 1,
+                  "endLine": 72,
+                  "endColumn": 14,
+                  "snippet": {
+                    "text": "FROM protobuf-4 as run-grpcio-tools-4"
+                  }
+                }
+              }
+            }
+          ],
+          "fingerprints": {
+            "matchBasedId/v1": "1872247491a2c4ff65c7608ff6624d342ece3d411dfd7bed55c8b8aab492ffebc36ca2b89c38bdc3910192be5d20818810c9b143cd9cac243034b1fb0fffa90d_1"
           },
           "properties": {}
         },
@@ -2079,37 +2079,6 @@
           "properties": {}
         },
         {
-          "ruleId": "f9b26469-4d64-36b5-b37b-7e206405643e",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "Function 'compatible_options' is missing a rate-limiting decorator.\nHigh volume traffic to this function could starve application\nresources. Consider adding rate limiting from a library such\nas 'django-ratelimit'.\n"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "openllm-core/src/openllm_core/_configuration.py",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 573,
-                  "startColumn": 3,
-                  "endLine": 578,
-                  "endColumn": 61,
-                  "snippet": {
-                    "text": "  def compatible_options(self, request: ChatCompletionRequest | CompletionRequest) -> dict[str, t.Any]:\n    from .protocol.openai import ChatCompletionRequest, CompletionRequest\n\n    if isinstance(request, (ChatCompletionRequest, CompletionRequest)):\n      return self.openai.build(self, request)\n    raise TypeError(f'Unknown request type {type(request)}')"
-                  }
-                }
-              }
-            }
-          ],
-          "fingerprints": {
-            "matchBasedId/v1": "4f05c57a93697ba81c6bed4653b064bcb139754f0875b8b8c99c9df4243591917916c5eb07a29e2f868340fe6ed32e427a0e4288a1eeb87cd338d8ac3f0bc960_0"
-          },
-          "properties": {}
-        },
-        {
           "ruleId": "f255b804-4f98-35ea-8e62-9feb49663df5",
           "kind": "fail",
           "level": "warning",
@@ -2137,6 +2106,37 @@
           ],
           "fingerprints": {
             "matchBasedId/v1": "da4ac606c210508aaaa88c2d073dc5a19df96bbc2cae8beb4cd3a8d001220054937b8fcad2a6113e689733081db812cb68bfadfbe47bd103e090b995815d06b2_0"
+          },
+          "properties": {}
+        },
+        {
+          "ruleId": "f9b26469-4d64-36b5-b37b-7e206405643e",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Function 'compatible_options' is missing a rate-limiting decorator.\nHigh volume traffic to this function could starve application\nresources. Consider adding rate limiting from a library such\nas 'django-ratelimit'.\n"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "openllm-core/src/openllm_core/_configuration.py",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 573,
+                  "startColumn": 3,
+                  "endLine": 578,
+                  "endColumn": 61,
+                  "snippet": {
+                    "text": "  def compatible_options(self, request: ChatCompletionRequest | CompletionRequest) -> dict[str, t.Any]:\n    from .protocol.openai import ChatCompletionRequest, CompletionRequest\n\n    if isinstance(request, (ChatCompletionRequest, CompletionRequest)):\n      return self.openai.build(self, request)\n    raise TypeError(f'Unknown request type {type(request)}')"
+                  }
+                }
+              }
+            }
+          ],
+          "fingerprints": {
+            "matchBasedId/v1": "4f05c57a93697ba81c6bed4653b064bcb139754f0875b8b8c99c9df4243591917916c5eb07a29e2f868340fe6ed32e427a0e4288a1eeb87cd338d8ac3f0bc960_0"
           },
           "properties": {}
         },
@@ -2265,37 +2265,6 @@
           "properties": {}
         },
         {
-          "ruleId": "1fa01245-a0d3-31eb-a68c-3d969b89c812",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "`return` only makes sense inside a function"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "openllm-core/src/openllm_core/protocol/openai.py",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 125,
-                  "startColumn": 52,
-                  "endLine": 125,
-                  "endColumn": 75,
-                  "snippet": {
-                    "text": "  id: str = pydantic.Field(default_factory=lambda: gen_random_uuid('cmpl'))"
-                  }
-                }
-              }
-            }
-          ],
-          "fingerprints": {
-            "matchBasedId/v1": "8445bf36de1262ed27eb6f1af8e90c18a962f3bcb6cf0fb0bdc567f3c293e5810c673efc1a04a44c1d27880b1d6cdb90e3f743113d00d475cace05cdcee67749_2"
-          },
-          "properties": {}
-        },
-        {
           "ruleId": "5ae32e9b-f331-3565-926b-07c91370213c",
           "kind": "fail",
           "level": "warning",
@@ -2323,6 +2292,37 @@
           ],
           "fingerprints": {
             "matchBasedId/v1": "8445bf36de1262ed27eb6f1af8e90c18a962f3bcb6cf0fb0bdc567f3c293e5810c673efc1a04a44c1d27880b1d6cdb90e3f743113d00d475cace05cdcee67749_3"
+          },
+          "properties": {}
+        },
+        {
+          "ruleId": "1fa01245-a0d3-31eb-a68c-3d969b89c812",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "`return` only makes sense inside a function"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "openllm-core/src/openllm_core/protocol/openai.py",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 125,
+                  "startColumn": 52,
+                  "endLine": 125,
+                  "endColumn": 75,
+                  "snippet": {
+                    "text": "  id: str = pydantic.Field(default_factory=lambda: gen_random_uuid('cmpl'))"
+                  }
+                }
+              }
+            }
+          ],
+          "fingerprints": {
+            "matchBasedId/v1": "8445bf36de1262ed27eb6f1af8e90c18a962f3bcb6cf0fb0bdc567f3c293e5810c673efc1a04a44c1d27880b1d6cdb90e3f743113d00d475cace05cdcee67749_2"
           },
           "properties": {}
         },
@@ -2358,68 +2358,6 @@
           "properties": {}
         },
         {
-          "ruleId": "95bb84ec-c21c-3170-852d-a733953919c1",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "`return` only makes sense inside a function"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "openllm-core/src/openllm_core/protocol/openai.py",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 160,
-                  "startColumn": 57,
-                  "endLine": 160,
-                  "endColumn": 78,
-                  "snippet": {
-                    "text": "  created: int = pydantic.Field(default_factory=lambda: int(time.monotonic()))"
-                  }
-                }
-              }
-            }
-          ],
-          "fingerprints": {
-            "matchBasedId/v1": "8445bf36de1262ed27eb6f1af8e90c18a962f3bcb6cf0fb0bdc567f3c293e5810c673efc1a04a44c1d27880b1d6cdb90e3f743113d00d475cace05cdcee67749_5"
-          },
-          "properties": {}
-        },
-        {
-          "ruleId": "964cfc00-e009-3507-b23f-280f4b43db82",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "`return` only makes sense inside a function"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "openllm-core/src/openllm_core/protocol/openai.py",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 169,
-                  "startColumn": 57,
-                  "endLine": 169,
-                  "endColumn": 78,
-                  "snippet": {
-                    "text": "  created: int = pydantic.Field(default_factory=lambda: int(time.monotonic()))"
-                  }
-                }
-              }
-            }
-          ],
-          "fingerprints": {
-            "matchBasedId/v1": "8445bf36de1262ed27eb6f1af8e90c18a962f3bcb6cf0fb0bdc567f3c293e5810c673efc1a04a44c1d27880b1d6cdb90e3f743113d00d475cace05cdcee67749_8"
-          },
-          "properties": {}
-        },
-        {
           "ruleId": "8f9545bb-0d35-3fb6-99d8-8ac644d8c32d",
           "kind": "fail",
           "level": "warning",
@@ -2447,6 +2385,37 @@
           ],
           "fingerprints": {
             "matchBasedId/v1": "8445bf36de1262ed27eb6f1af8e90c18a962f3bcb6cf0fb0bdc567f3c293e5810c673efc1a04a44c1d27880b1d6cdb90e3f743113d00d475cace05cdcee67749_6"
+          },
+          "properties": {}
+        },
+        {
+          "ruleId": "95bb84ec-c21c-3170-852d-a733953919c1",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "`return` only makes sense inside a function"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "openllm-core/src/openllm_core/protocol/openai.py",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 160,
+                  "startColumn": 57,
+                  "endLine": 160,
+                  "endColumn": 78,
+                  "snippet": {
+                    "text": "  created: int = pydantic.Field(default_factory=lambda: int(time.monotonic()))"
+                  }
+                }
+              }
+            }
+          ],
+          "fingerprints": {
+            "matchBasedId/v1": "8445bf36de1262ed27eb6f1af8e90c18a962f3bcb6cf0fb0bdc567f3c293e5810c673efc1a04a44c1d27880b1d6cdb90e3f743113d00d475cace05cdcee67749_5"
           },
           "properties": {}
         },
@@ -2482,6 +2451,37 @@
           "properties": {}
         },
         {
+          "ruleId": "964cfc00-e009-3507-b23f-280f4b43db82",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "`return` only makes sense inside a function"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "openllm-core/src/openllm_core/protocol/openai.py",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 169,
+                  "startColumn": 57,
+                  "endLine": 169,
+                  "endColumn": 78,
+                  "snippet": {
+                    "text": "  created: int = pydantic.Field(default_factory=lambda: int(time.monotonic()))"
+                  }
+                }
+              }
+            }
+          ],
+          "fingerprints": {
+            "matchBasedId/v1": "8445bf36de1262ed27eb6f1af8e90c18a962f3bcb6cf0fb0bdc567f3c293e5810c673efc1a04a44c1d27880b1d6cdb90e3f743113d00d475cace05cdcee67749_8"
+          },
+          "properties": {}
+        },
+        {
           "ruleId": "bac700b7-14a7-31ef-9b96-e3b0de92b8a4",
           "kind": "fail",
           "level": "warning",
@@ -2509,37 +2509,6 @@
           ],
           "fingerprints": {
             "matchBasedId/v1": "8445bf36de1262ed27eb6f1af8e90c18a962f3bcb6cf0fb0bdc567f3c293e5810c673efc1a04a44c1d27880b1d6cdb90e3f743113d00d475cace05cdcee67749_9"
-          },
-          "properties": {}
-        },
-        {
-          "ruleId": "13964f7a-1b4b-37a6-88d6-58ebc47dc210",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "`return` only makes sense inside a function"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "openllm-core/src/openllm_core/protocol/openai.py",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 180,
-                  "startColumn": 80,
-                  "endLine": 180,
-                  "endColumn": 99,
-                  "snippet": {
-                    "text": "  permission: t.List[ModelPermission] = pydantic.Field(default_factory=lambda: [ModelPermission()])"
-                  }
-                }
-              }
-            }
-          ],
-          "fingerprints": {
-            "matchBasedId/v1": "8445bf36de1262ed27eb6f1af8e90c18a962f3bcb6cf0fb0bdc567f3c293e5810c673efc1a04a44c1d27880b1d6cdb90e3f743113d00d475cace05cdcee67749_10"
           },
           "properties": {}
         },
@@ -2575,6 +2544,37 @@
           "properties": {}
         },
         {
+          "ruleId": "13964f7a-1b4b-37a6-88d6-58ebc47dc210",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "`return` only makes sense inside a function"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "openllm-core/src/openllm_core/protocol/openai.py",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 180,
+                  "startColumn": 80,
+                  "endLine": 180,
+                  "endColumn": 99,
+                  "snippet": {
+                    "text": "  permission: t.List[ModelPermission] = pydantic.Field(default_factory=lambda: [ModelPermission()])"
+                  }
+                }
+              }
+            }
+          ],
+          "fingerprints": {
+            "matchBasedId/v1": "8445bf36de1262ed27eb6f1af8e90c18a962f3bcb6cf0fb0bdc567f3c293e5810c673efc1a04a44c1d27880b1d6cdb90e3f743113d00d475cace05cdcee67749_10"
+          },
+          "properties": {}
+        },
+        {
           "ruleId": "f8ede59b-b8be-373c-a00c-aa35db182a49",
           "kind": "fail",
           "level": "warning",
@@ -2602,37 +2602,6 @@
           ],
           "fingerprints": {
             "matchBasedId/v1": "8445bf36de1262ed27eb6f1af8e90c18a962f3bcb6cf0fb0bdc567f3c293e5810c673efc1a04a44c1d27880b1d6cdb90e3f743113d00d475cace05cdcee67749_12"
-          },
-          "properties": {}
-        },
-        {
-          "ruleId": "fa3c770f-e9e8-36ad-a1e7-39648101061d",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "Untrusted user input in `importlib.import_module()` function allows an attacker to load arbitrary code. Avoid dynamic values in `importlib.import_module()` or use a whitelist to prevent running untrusted code."
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "openllm-core/src/openllm_core/utils/dantic.py",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 331,
-                  "startColumn": 14,
-                  "endLine": 331,
-                  "endColumn": 50,
-                  "snippet": {
-                    "text": "    module = importlib.import_module(module_name)"
-                  }
-                }
-              }
-            }
-          ],
-          "fingerprints": {
-            "matchBasedId/v1": "c916918ae1814dad60aeb9da6ba936529f7bb08c6286ea4091cce9273bcfeb9c2ede82661b3dfb231fe822e46528e4c55869daeae4d4e45685ccaec25cca78c7_0"
           },
           "properties": {}
         },
@@ -2668,6 +2637,37 @@
           "properties": {}
         },
         {
+          "ruleId": "fa3c770f-e9e8-36ad-a1e7-39648101061d",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Untrusted user input in `importlib.import_module()` function allows an attacker to load arbitrary code. Avoid dynamic values in `importlib.import_module()` or use a whitelist to prevent running untrusted code."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "openllm-core/src/openllm_core/utils/dantic.py",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 331,
+                  "startColumn": 14,
+                  "endLine": 331,
+                  "endColumn": 50,
+                  "snippet": {
+                    "text": "    module = importlib.import_module(module_name)"
+                  }
+                }
+              }
+            }
+          ],
+          "fingerprints": {
+            "matchBasedId/v1": "c916918ae1814dad60aeb9da6ba936529f7bb08c6286ea4091cce9273bcfeb9c2ede82661b3dfb231fe822e46528e4c55869daeae4d4e45685ccaec25cca78c7_0"
+          },
+          "properties": {}
+        },
+        {
           "ruleId": "7338d467-82cd-31ca-847c-ee12796e0f58",
           "kind": "fail",
           "level": "warning",
@@ -2695,37 +2695,6 @@
           ],
           "fingerprints": {
             "matchBasedId/v1": "8d65b68387d2d09830b174006f08cee4ff454e779d156e41eb9eec5f14275b98c68a3c1704b1cc3e70051a6fb7867273f52ca9eab22173bfed84f4759f084389_0"
-          },
-          "properties": {}
-        },
-        {
-          "ruleId": "ddd67f86-8d70-3249-a77e-c0366b0ed7d2",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "Untrusted user input in `importlib.import_module()` function allows an attacker to load arbitrary code. Avoid dynamic values in `importlib.import_module()` or use a whitelist to prevent running untrusted code."
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "openllm-core/src/openllm_core/utils/lazy.py",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 255,
-                  "startColumn": 14,
-                  "endLine": 255,
-                  "endColumn": 71,
-                  "snippet": {
-                    "text": "      return importlib.import_module('.' + module_name, self.__name__)"
-                  }
-                }
-              }
-            }
-          ],
-          "fingerprints": {
-            "matchBasedId/v1": "9db80d30a8dad05ac2a0fd1159fb7aeb8910dd84a2fc1ffc9a1497189fcd3ebde309c6fd40eeca58b41a1e1b5c7199da9d753b99189e3aff00189c7807d956ed_0"
           },
           "properties": {}
         },
@@ -2761,33 +2730,33 @@
           "properties": {}
         },
         {
-          "ruleId": "2dcc969a-474c-369b-aedc-65ad9095656e",
+          "ruleId": "ddd67f86-8d70-3249-a77e-c0366b0ed7d2",
           "kind": "fail",
           "level": "warning",
           "message": {
-            "text": "`return` only makes sense inside a function"
+            "text": "Untrusted user input in `importlib.import_module()` function allows an attacker to load arbitrary code. Avoid dynamic values in `importlib.import_module()` or use a whitelist to prevent running untrusted code."
           },
           "locations": [
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "openllm-core/src/openllm_core/utils/serde.py",
+                  "uri": "openllm-core/src/openllm_core/utils/lazy.py",
                   "uriBaseId": "%SRCROOT%"
                 },
                 "region": {
-                  "startLine": 34,
-                  "startColumn": 58,
-                  "endLine": 34,
-                  "endColumn": 72,
+                  "startLine": 255,
+                  "startColumn": 14,
+                  "endLine": 255,
+                  "endColumn": 71,
                   "snippet": {
-                    "text": "converter.register_unstructure_hook(datetime, lambda dt: dt.isoformat())"
+                    "text": "      return importlib.import_module('.' + module_name, self.__name__)"
                   }
                 }
               }
             }
           ],
           "fingerprints": {
-            "matchBasedId/v1": "ceb3a498d8274d4f5ef4f9fe78b7e040dec3b6960be4c8f613807f6ef2e392ba8e6fb6e6d4e207b357af293fdd505469ed3b2f0b2c13a63a0d40d103084096d4_2"
+            "matchBasedId/v1": "9db80d30a8dad05ac2a0fd1159fb7aeb8910dd84a2fc1ffc9a1497189fcd3ebde309c6fd40eeca58b41a1e1b5c7199da9d753b99189e3aff00189c7807d956ed_0"
           },
           "properties": {}
         },
@@ -2823,33 +2792,33 @@
           "properties": {}
         },
         {
-          "ruleId": "0f5a6f6f-e8a1-3a3e-87fb-4517b0e8e8ff",
+          "ruleId": "2dcc969a-474c-369b-aedc-65ad9095656e",
           "kind": "fail",
           "level": "warning",
           "message": {
-            "text": "Function 'chat_completions' is missing a rate-limiting decorator.\nHigh volume traffic to this function could starve application\nresources. Consider adding rate limiting from a library such\nas 'django-ratelimit'.\n"
+            "text": "`return` only makes sense inside a function"
           },
           "locations": [
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "openllm-python/src/_openllm_tiny/_helpers.py",
+                  "uri": "openllm-core/src/openllm_core/utils/serde.py",
                   "uriBaseId": "%SRCROOT%"
                 },
                 "region": {
-                  "startLine": 46,
-                  "startColumn": 3,
-                  "endLine": 78,
-                  "endColumn": 50,
+                  "startLine": 34,
+                  "startColumn": 58,
+                  "endLine": 34,
+                  "endColumn": 72,
                   "snippet": {
-                    "text": "  async def chat_completions(self, request: ChatCompletionRequest, raw_request: Request):\n    if request.logit_bias is not None and len(request.logit_bias) > 0:\n      return self.create_error_response(\"'logit_bias' is not supported .\", NotSupportedError)\n\n    error = await self._check_model(request)\n    if error is not None:\n      return error\n\n    try:\n      prompt: str = self.llm._tokenizer.apply_chat_template(\n        conversation=request.messages,\n        tokenize=False,\n        add_generation_prompt=request.add_generation_prompt,\n        chat_template=request.chat_template if request.chat_template != 'None' else None,\n      )\n    except Exception as e:\n      traceback.print_exc()\n      return self.create_error_response(f'Failed to apply chat template: {e}')\n\n    model_name, request_id = request.model, gen_random_uuid('chatcmpl')\n    created_time = int(time.monotonic())\n\n    generator = self.llm.generate_iterator(prompt, request_id=request_id, **request.model_dump())\n    if request.stream:\n      return self.chat_completion_stream_generator(request, model_name, request_id, created_time, generator)\n\n    try:\n      return await self.chat_completion_full_generator(\n        request, raw_request, model_name, request_id, created_time, generator\n      )\n    except Exception as err:\n      traceback.print_exc()\n      return self.create_error_response(str(err))"
+                    "text": "converter.register_unstructure_hook(datetime, lambda dt: dt.isoformat())"
                   }
                 }
               }
             }
           ],
           "fingerprints": {
-            "matchBasedId/v1": "7da389f16d2294da81c15d21247746a8a04cc87cfc8e4d1a552e77996211d3a64fff964fc1a444b9da5b35ba027d2a3c9f92e45b8491b78f63d553dd98fe5bab_0"
+            "matchBasedId/v1": "ceb3a498d8274d4f5ef4f9fe78b7e040dec3b6960be4c8f613807f6ef2e392ba8e6fb6e6d4e207b357af293fdd505469ed3b2f0b2c13a63a0d40d103084096d4_2"
           },
           "properties": {}
         },
@@ -2881,6 +2850,37 @@
           ],
           "fingerprints": {
             "matchBasedId/v1": "7b4103c0d80f0d44ad8828e03779d7de7baf61d9eec9d17c137ee87ad423c0a35c4255f2101f77a2e961ec49b728e89ae7be4930af48e2ba48c2074ed13c2334_0"
+          },
+          "properties": {}
+        },
+        {
+          "ruleId": "0f5a6f6f-e8a1-3a3e-87fb-4517b0e8e8ff",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Function 'chat_completions' is missing a rate-limiting decorator.\nHigh volume traffic to this function could starve application\nresources. Consider adding rate limiting from a library such\nas 'django-ratelimit'.\n"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "openllm-python/src/_openllm_tiny/_helpers.py",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 46,
+                  "startColumn": 3,
+                  "endLine": 78,
+                  "endColumn": 50,
+                  "snippet": {
+                    "text": "  async def chat_completions(self, request: ChatCompletionRequest, raw_request: Request):\n    if request.logit_bias is not None and len(request.logit_bias) > 0:\n      return self.create_error_response(\"'logit_bias' is not supported .\", NotSupportedError)\n\n    error = await self._check_model(request)\n    if error is not None:\n      return error\n\n    try:\n      prompt: str = self.llm._tokenizer.apply_chat_template(\n        conversation=request.messages,\n        tokenize=False,\n        add_generation_prompt=request.add_generation_prompt,\n        chat_template=request.chat_template if request.chat_template != 'None' else None,\n      )\n    except Exception as e:\n      traceback.print_exc()\n      return self.create_error_response(f'Failed to apply chat template: {e}')\n\n    model_name, request_id = request.model, gen_random_uuid('chatcmpl')\n    created_time = int(time.monotonic())\n\n    generator = self.llm.generate_iterator(prompt, request_id=request_id, **request.model_dump())\n    if request.stream:\n      return self.chat_completion_stream_generator(request, model_name, request_id, created_time, generator)\n\n    try:\n      return await self.chat_completion_full_generator(\n        request, raw_request, model_name, request_id, created_time, generator\n      )\n    except Exception as err:\n      traceback.print_exc()\n      return self.create_error_response(str(err))"
+                  }
+                }
+              }
+            }
+          ],
+          "fingerprints": {
+            "matchBasedId/v1": "7da389f16d2294da81c15d21247746a8a04cc87cfc8e4d1a552e77996211d3a64fff964fc1a444b9da5b35ba027d2a3c9f92e45b8491b78f63d553dd98fe5bab_0"
           },
           "properties": {}
         },
@@ -2978,6 +2978,37 @@
           "properties": {}
         },
         {
+          "ruleId": "06af2c6a-2bcf-3d0f-9618-5cac23a3618d",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Function '_validate_prompt' is missing a rate-limiting decorator.\nHigh volume traffic to this function could starve application\nresources. Consider adding rate limiting from a library such\nas 'django-ratelimit'.\n"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "openllm-python/src/_openllm_tiny/_helpers.py",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 276,
+                  "startColumn": 3,
+                  "endLine": 285,
+                  "endColumn": 76,
+                  "snippet": {
+                    "text": "  def _validate_prompt(\n    self,\n    request: ChatCompletionRequest | CompletionRequest,\n    prompt: str | None = None,\n    prompt_ids: list[int] | None = None,\n  ) -> Error | None:\n    if not (prompt or prompt_ids):\n      raise ValueError(\"'prompt' or 'prompt_ids' must be provided.\")\n    if prompt and prompt_ids:\n      raise ValueError(\"'prompt' and 'prompt_ids' are mutually exclusive.\")"
+                  }
+                }
+              }
+            }
+          ],
+          "fingerprints": {
+            "matchBasedId/v1": "f7b04b6807a32b92440fa93a63d16e1facb2b0df2798b660464fe1c09e94c0445c300394f5871eb27db02479db43cc065586214d6476f19fce6d04205c9ce0cd_0"
+          },
+          "properties": {}
+        },
+        {
           "ruleId": "83cd393f-53fb-3f4d-bc38-7d10da405a09",
           "kind": "fail",
           "level": "warning",
@@ -3040,37 +3071,6 @@
           "properties": {}
         },
         {
-          "ruleId": "06af2c6a-2bcf-3d0f-9618-5cac23a3618d",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "Function '_validate_prompt' is missing a rate-limiting decorator.\nHigh volume traffic to this function could starve application\nresources. Consider adding rate limiting from a library such\nas 'django-ratelimit'.\n"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "openllm-python/src/_openllm_tiny/_helpers.py",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 276,
-                  "startColumn": 3,
-                  "endLine": 285,
-                  "endColumn": 76,
-                  "snippet": {
-                    "text": "  def _validate_prompt(\n    self,\n    request: ChatCompletionRequest | CompletionRequest,\n    prompt: str | None = None,\n    prompt_ids: list[int] | None = None,\n  ) -> Error | None:\n    if not (prompt or prompt_ids):\n      raise ValueError(\"'prompt' or 'prompt_ids' must be provided.\")\n    if prompt and prompt_ids:\n      raise ValueError(\"'prompt' and 'prompt_ids' are mutually exclusive.\")"
-                  }
-                }
-              }
-            }
-          ],
-          "fingerprints": {
-            "matchBasedId/v1": "f7b04b6807a32b92440fa93a63d16e1facb2b0df2798b660464fe1c09e94c0445c300394f5871eb27db02479db43cc065586214d6476f19fce6d04205c9ce0cd_0"
-          },
-          "properties": {}
-        },
-        {
           "ruleId": "30021810-c529-3318-a87c-c1a727b3b147",
           "kind": "fail",
           "level": "warning",
@@ -3102,37 +3102,6 @@
           "properties": {}
         },
         {
-          "ruleId": "5421c308-0687-32c7-83f1-2b730ff23787",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "Function 'check_model' is missing a rate-limiting decorator.\nHigh volume traffic to this function could starve application\nresources. Consider adding rate limiting from a library such\nas 'django-ratelimit'.\n"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "openllm-python/src/openllm/entrypoints/openai.py",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 73,
-                  "startColumn": 1,
-                  "endLine": 79,
-                  "endColumn": 4,
-                  "snippet": {
-                    "text": "async def check_model(request, model):\n  if request.model == model:\n    return None\n  return error_response(\n    HTTPStatus.NOT_FOUND,\n    f\"Model '{request.model}' does not exists. Try 'GET /v1/models' to see available models.\\nTip: If you are migrating from OpenAI, make sure to update your 'model' parameters in the request.\",\n  )"
-                  }
-                }
-              }
-            }
-          ],
-          "fingerprints": {
-            "matchBasedId/v1": "e3e6517e26c398a42f29ad9f8f67aca7613f55d022f1655ef04dc172184af592f34229513ea9da8efc49d5702733dd5cfe41daecf6941613ee03558b58f4853d_0"
-          },
-          "properties": {}
-        },
-        {
           "ruleId": "6e783de5-ee21-311a-88e0-d752ef841877",
           "kind": "fail",
           "level": "warning",
@@ -3160,6 +3129,37 @@
           ],
           "fingerprints": {
             "matchBasedId/v1": "5e7499829d5222bea63372ef84b09b1af9636332c86e9d05cb20c886635e1eff2a051520aad0242ad4877dcd8a51552220da27d6948dc89e62ec959738f4569b_0"
+          },
+          "properties": {}
+        },
+        {
+          "ruleId": "5421c308-0687-32c7-83f1-2b730ff23787",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Function 'check_model' is missing a rate-limiting decorator.\nHigh volume traffic to this function could starve application\nresources. Consider adding rate limiting from a library such\nas 'django-ratelimit'.\n"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "openllm-python/src/openllm/entrypoints/openai.py",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 73,
+                  "startColumn": 1,
+                  "endLine": 79,
+                  "endColumn": 4,
+                  "snippet": {
+                    "text": "async def check_model(request, model):\n  if request.model == model:\n    return None\n  return error_response(\n    HTTPStatus.NOT_FOUND,\n    f\"Model '{request.model}' does not exists. Try 'GET /v1/models' to see available models.\\nTip: If you are migrating from OpenAI, make sure to update your 'model' parameters in the request.\",\n  )"
+                  }
+                }
+              }
+            }
+          ],
+          "fingerprints": {
+            "matchBasedId/v1": "e3e6517e26c398a42f29ad9f8f67aca7613f55d022f1655ef04dc172184af592f34229513ea9da8efc49d5702733dd5cfe41daecf6941613ee03558b58f4853d_0"
           },
           "properties": {}
         },
@@ -3288,37 +3288,6 @@
           "properties": {}
         },
         {
-          "ruleId": "1e797457-82ce-3ff4-8adf-60451123135e",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "Untrusted user input in `importlib.import_module()` function allows an attacker to load arbitrary code. Avoid dynamic values in `importlib.import_module()` or use a whitelist to prevent running untrusted code."
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "openllm-python/src/openllm/serialisation/transformers/__init__.py",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 95,
-                  "startColumn": 6,
-                  "endLine": 95,
-                  "endColumn": 51,
-                  "snippet": {
-                    "text": "    [importlib.import_module(tokenizer.__module__)],"
-                  }
-                }
-              }
-            }
-          ],
-          "fingerprints": {
-            "matchBasedId/v1": "1cf19f534ccad5a18560b2e24c29a31de73658b7bf5c4b8c111e3d1b1747442aa98744b1ee2abd4484d6612066b1ee5695bb9e1e49299051a520e47264bbb0eb_0"
-          },
-          "properties": {}
-        },
-        {
           "ruleId": "861202c7-b15a-3dc4-aa48-a725437fa772",
           "kind": "fail",
           "level": "warning",
@@ -3350,33 +3319,64 @@
           "properties": {}
         },
         {
-          "ruleId": "9bff63d0-5da5-35ba-be40-77849e4b2190",
+          "ruleId": "1e797457-82ce-3ff4-8adf-60451123135e",
           "kind": "fail",
           "level": "warning",
           "message": {
-            "text": "Regex `r'__object__:(\\{.*\\})$'` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)"
+            "text": "Untrusted user input in `importlib.import_module()` function allows an attacker to load arbitrary code. Avoid dynamic values in `importlib.import_module()` or use a whitelist to prevent running untrusted code."
           },
           "locations": [
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "openllm-python/src/openllm_cli/_sdk.py",
+                  "uri": "openllm-python/src/openllm/serialisation/transformers/__init__.py",
                   "uriBaseId": "%SRCROOT%"
                 },
                 "region": {
-                  "startLine": 197,
-                  "startColumn": 13,
-                  "endLine": 197,
-                  "endColumn": 78,
+                  "startLine": 95,
+                  "startColumn": 6,
+                  "endLine": 95,
+                  "endColumn": 51,
                   "snippet": {
-                    "text": "  matched = re.match(r'__object__:(\\{.*\\})$', output.decode('utf-8').strip())"
+                    "text": "    [importlib.import_module(tokenizer.__module__)],"
                   }
                 }
               }
             }
           ],
           "fingerprints": {
-            "matchBasedId/v1": "f9c23a7b788eeae948da3473c6c3da0605b9f3cf297ba299b4d3df28f8fe8d6e30ef46f422eb0d4bb42159f305fd9895803b491d3618e003b3481fdaf7ff5b33_0"
+            "matchBasedId/v1": "1cf19f534ccad5a18560b2e24c29a31de73658b7bf5c4b8c111e3d1b1747442aa98744b1ee2abd4484d6612066b1ee5695bb9e1e49299051a520e47264bbb0eb_0"
+          },
+          "properties": {}
+        },
+        {
+          "ruleId": "a0ee3fe3-aafa-376a-9d8f-ef70a200a1f6",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Untrusted user input in `importlib.import_module()` function allows an attacker to load arbitrary code. Avoid dynamic values in `importlib.import_module()` or use a whitelist to prevent running untrusted code."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "openllm-python/src/openllm/serialisation/transformers/__init__.py",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 135,
+                  "startColumn": 45,
+                  "endLine": 135,
+                  "endColumn": 86,
+                  "snippet": {
+                    "text": "      bentomodel.enter_cloudpickle_context([importlib.import_module(model.__module__)], bentomodel.imported_modules)"
+                  }
+                }
+              }
+            }
+          ],
+          "fingerprints": {
+            "matchBasedId/v1": "752a417e894aca462902631a3be341f74b780640363ae90801001a7ac0a31a723419c8e05352b99e7f42dac89d25d15b519c41c4f451e1f826d538f470c3e854_0"
           },
           "properties": {}
         },
@@ -3412,6 +3412,37 @@
           "properties": {}
         },
         {
+          "ruleId": "9bff63d0-5da5-35ba-be40-77849e4b2190",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Regex `r'__object__:(\\{.*\\})$'` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "openllm-python/src/openllm_cli/_sdk.py",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 197,
+                  "startColumn": 13,
+                  "endLine": 197,
+                  "endColumn": 78,
+                  "snippet": {
+                    "text": "  matched = re.match(r'__object__:(\\{.*\\})$', output.decode('utf-8').strip())"
+                  }
+                }
+              }
+            }
+          ],
+          "fingerprints": {
+            "matchBasedId/v1": "f9c23a7b788eeae948da3473c6c3da0605b9f3cf297ba299b4d3df28f8fe8d6e30ef46f422eb0d4bb42159f305fd9895803b491d3618e003b3481fdaf7ff5b33_0"
+          },
+          "properties": {}
+        },
+        {
           "ruleId": "462b8d2e-1512-37ac-8884-9172eec4a516",
           "kind": "fail",
           "level": "warning",
@@ -3443,33 +3474,33 @@
           "properties": {}
         },
         {
-          "ruleId": "a0ee3fe3-aafa-376a-9d8f-ef70a200a1f6",
+          "ruleId": "5f804616-570b-396c-aa34-c53fcd1c5f23",
           "kind": "fail",
           "level": "warning",
           "message": {
-            "text": "Untrusted user input in `importlib.import_module()` function allows an attacker to load arbitrary code. Avoid dynamic values in `importlib.import_module()` or use a whitelist to prevent running untrusted code."
+            "text": "Detected subprocess function 'check_call' without a static string. If this data can be\ncontrolled by a malicious actor, it may be an instance of command injection.\nAudit the use of this call to ensure it is not controllable by an external resource.\nYou may consider using 'shlex.escape()'.\n"
           },
           "locations": [
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "openllm-python/src/openllm/serialisation/transformers/__init__.py",
+                  "uri": "openllm-python/src/openllm_cli/extension/dive_bentos.py",
                   "uriBaseId": "%SRCROOT%"
                 },
                 "region": {
-                  "startLine": 135,
-                  "startColumn": 45,
-                  "endLine": 135,
-                  "endColumn": 86,
+                  "startLine": 42,
+                  "startColumn": 5,
+                  "endLine": 42,
+                  "endColumn": 88,
                   "snippet": {
-                    "text": "      bentomodel.enter_cloudpickle_context([importlib.import_module(model.__module__)], bentomodel.imported_modules)"
+                    "text": "    subprocess.check_call([shutil.which('ls') or 'ls', '-Rrthla'], cwd=bentomodel.path)"
                   }
                 }
               }
             }
           ],
           "fingerprints": {
-            "matchBasedId/v1": "752a417e894aca462902631a3be341f74b780640363ae90801001a7ac0a31a723419c8e05352b99e7f42dac89d25d15b519c41c4f451e1f826d538f470c3e854_0"
+            "matchBasedId/v1": "e3bba9bbdcdf508bbd09ab200a63caf1ccd01f8724a91a581ba53a31b5de2eda91b979e363ef18f2c534792eb2c01c4c677932079bf59e467926133f6ef3b2d3_1"
           },
           "properties": {}
         },
@@ -3567,37 +3598,6 @@
           "properties": {}
         },
         {
-          "ruleId": "5f804616-570b-396c-aa34-c53fcd1c5f23",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "Detected subprocess function 'check_call' without a static string. If this data can be\ncontrolled by a malicious actor, it may be an instance of command injection.\nAudit the use of this call to ensure it is not controllable by an external resource.\nYou may consider using 'shlex.escape()'.\n"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "openllm-python/src/openllm_cli/extension/dive_bentos.py",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 42,
-                  "startColumn": 5,
-                  "endLine": 42,
-                  "endColumn": 88,
-                  "snippet": {
-                    "text": "    subprocess.check_call([shutil.which('ls') or 'ls', '-Rrthla'], cwd=bentomodel.path)"
-                  }
-                }
-              }
-            }
-          ],
-          "fingerprints": {
-            "matchBasedId/v1": "e3bba9bbdcdf508bbd09ab200a63caf1ccd01f8724a91a581ba53a31b5de2eda91b979e363ef18f2c534792eb2c01c4c677932079bf59e467926133f6ef3b2d3_1"
-          },
-          "properties": {}
-        },
-        {
           "ruleId": "441cd2c1-21a5-37b2-9dc0-a781bba2771b",
           "kind": "fail",
           "level": "warning",
@@ -3625,37 +3625,6 @@
           ],
           "fingerprints": {
             "matchBasedId/v1": "4ed09f598bec0c094bf3c1b2a4e805578d9caf449cb026e36e48a47b9b530bacd5be181e8e87660628514c74cf4aeac6b88a9dedc4d40009e1557ef095e68e58_0"
-          },
-          "properties": {}
-        },
-        {
-          "ruleId": "367eb6ae-9ff0-36c4-b450-fa34ac8d0677",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "Detected direct use of jinja2. If not done properly, this may bypass HTML escaping which opens up the application to cross-site scripting (XSS) vulnerabilities. Prefer using the Flask method 'render_template()' and templates with a '.html' extension in order to prevent XSS."
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "tools/update-brew-tap.py",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 52,
-                  "startColumn": 17,
-                  "endLine": 57,
-                  "endColumn": 4,
-                  "snippet": {
-                    "text": "  ENVIRONMENT = Environment(\n    extensions=['jinja2.ext.do', 'jinja2.ext.loopcontrols', 'jinja2.ext.debug'],\n    trim_blocks=True,\n    lstrip_blocks=True,\n    loader=FileSystemLoader((ROOT / 'Formula').__fspath__(), followlinks=True),\n  )"
-                  }
-                }
-              }
-            }
-          ],
-          "fingerprints": {
-            "matchBasedId/v1": "028cdf73c697038ac9e5b96fcad3802aede7fe430583af7dcc6a23eeda9fedae94b4983cfd136d77ad70ae453a18809575d6c7938ac8297d2e82eb7ac883316e_0"
           },
           "properties": {}
         },
@@ -3718,6 +3687,37 @@
           ],
           "fingerprints": {
             "matchBasedId/v1": "1201845345fc6652d75cc8c20f08ab88e08dc928a6d9f80bea278754b036c9fdf9013ada55bf5505ca770a9662c1c0bc162733d80f582451204ca8d0e673f564_1"
+          },
+          "properties": {}
+        },
+        {
+          "ruleId": "367eb6ae-9ff0-36c4-b450-fa34ac8d0677",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Detected direct use of jinja2. If not done properly, this may bypass HTML escaping which opens up the application to cross-site scripting (XSS) vulnerabilities. Prefer using the Flask method 'render_template()' and templates with a '.html' extension in order to prevent XSS."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tools/update-brew-tap.py",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 52,
+                  "startColumn": 17,
+                  "endLine": 57,
+                  "endColumn": 4,
+                  "snippet": {
+                    "text": "  ENVIRONMENT = Environment(\n    extensions=['jinja2.ext.do', 'jinja2.ext.loopcontrols', 'jinja2.ext.debug'],\n    trim_blocks=True,\n    lstrip_blocks=True,\n    loader=FileSystemLoader((ROOT / 'Formula').__fspath__(), followlinks=True),\n  )"
+                  }
+                }
+              }
+            }
+          ],
+          "fingerprints": {
+            "matchBasedId/v1": "028cdf73c697038ac9e5b96fcad3802aede7fe430583af7dcc6a23eeda9fedae94b4983cfd136d77ad70ae453a18809575d6c7938ac8297d2e82eb7ac883316e_0"
           },
           "properties": {}
         }
